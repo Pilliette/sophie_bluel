@@ -9,7 +9,7 @@
 	<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Work+Sans&display=swap" rel="stylesheet">
 	<meta name="description" content="">
 	<link rel="stylesheet" href="./assets/style.css">
-	<script src="script.js" defer></script>
+	<script src="galerie.js" defer></script>
 </head>
 <body>
 <header>
@@ -35,12 +35,39 @@
 			<p>En cas de besoin, une équipe pluridisciplinaire peut-être constituée : architecte DPLG, décorateur(trice)</p>
 		</article>
 	</section>
+
 	<section id="portfolio">
 		<h2>Mes Projets</h2>
+
+		<div class="blocForm">
+			<form class="filtres" method="get" action="">
+				<input class="bouton__radio" type="radio" name="categorie" id="tous" checked>
+				<label class="bouton" for="tous">
+					<span class="categorie">Tous</span>
+				</label>
+
+				<input class="bouton__radio" type="radio" name="categorie" id="objets">
+				<label class="bouton" for="objets">
+					<span class="categorie">Objets</span>
+				</label>
+
+				<input class="bouton__radio" type="radio" name="categorie" id="appartements">
+				<label class="bouton bouton--appartements" for="appartements">
+					<span class="categorie">Appartements</span>
+				</label>
+
+				<input class="bouton__radio" type="radio" name="categorie" id="hotels_restaurants">
+				<label class="bouton bouton--hotels_restaurants" for="hotels_restaurants">
+					<span class="categorie">Hotels & restaurants</span>
+				</label>
+			</form>
+		</div>
+
 		<div class="gallery">
 			<!-- Récupération de la galerie depuis script.js -->
 		</div>
 	</section>
+
 	<section id="contact">
 		<h2>Contact</h2>
 		<p>Vous avez un projet ? Discutons-en !</p>
@@ -51,7 +78,9 @@
 			<input type="email" name="email" id="email">
 			<label for="message">Message</label>
 			<textarea name="message" id="message" cols="30" rows="10"></textarea>
-			<input type="submit" value="Envoyer">
+			<div class="contactButton__bloc">
+				<input class="contactButton" type="submit" value="Envoyer">
+			</div>
 		</form>
 	</section>
 </main>
