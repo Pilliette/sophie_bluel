@@ -1,5 +1,5 @@
 // Déclaration d'une fonction pour afficher les boutons filtrants
-function afficherFiltres() {
+function afficherFiltres(allWorks, chargerGalerie) {
 
     // Création du tableau de catégories
     const categories = [
@@ -46,15 +46,18 @@ function afficherFiltres() {
     })
 
     filtres.addEventListener(`click`, (event) => {
-        if (event.target.dataset.categoryId > 0) {
 
-            console.log(`Clic clac, merci Kodak`)
+        const categoryId = parseInt(event.target.dataset.categoryId)
 
-            const worksFiltres = works.filter(function (work) {
-                return work.categoryId === event.target.dataset.categoryId
-            })
+        if (categoryId > 0) {
+            const worksFiltres = allWorks.filter(uniqueWork => uniqueWork.categoryId === categoryId)
 
             console.log(worksFiltres)
+
+            chargerGalerie(worksFiltres)
+
+        } else if (categoryId === -1) {
+            chargerGalerie(allWorks)
         }
     })
 }

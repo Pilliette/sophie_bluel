@@ -7,6 +7,7 @@ async function chargerGalerie(galerie) {
 
     // Récupération du parent des <figure>
     const parentProjet = document.querySelector(`.gallery`)
+    parentProjet.innerHTML = ``
 
     galerie.forEach(uniqueWork => {
 
@@ -30,7 +31,6 @@ async function chargerGalerie(galerie) {
 
 // Export du fichier galerie.js complet
 export default {
-    reponse,
     allWorks,
     chargerGalerie
 }
