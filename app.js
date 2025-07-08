@@ -5,4 +5,4 @@ import filtres from './JS/filtres.js'
 galerie.chargerGalerie(galerie.allWorks)
 
 // Appel de la fonction pour afficher les filtres
-filtres.afficherFiltres(galerie.allWorks, galerie.chargerGalerie)
+filtres.filtrer(galerie.allWorks, galerie.chargerGalerie)

@@ -1,5 +1,5 @@
 // Déclaration d'une fonction pour afficher les boutons filtrants
-function afficherFiltres(allWorks, chargerGalerie) {
+function filtrer(allWorks, chargerGalerie) {
 
     // Création du tableau de catégories
     const categories = [
@@ -64,5 +64,5 @@ function afficherFiltres(allWorks, chargerGalerie) {
 
 // Export du fichier filtres.js complet
 export default {
-    afficherFiltres
+    filtrer
 }
