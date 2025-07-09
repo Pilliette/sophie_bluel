@@ -52,8 +52,6 @@ function filtrer(allWorks, chargerGalerie) {
         if (categoryId > 0) {
             const worksFiltres = allWorks.filter(uniqueWork => uniqueWork.categoryId === categoryId)
 
-            console.log(worksFiltres)
-
             chargerGalerie(worksFiltres)
 
         } else if (categoryId === -1) {
