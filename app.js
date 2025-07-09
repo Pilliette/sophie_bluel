@@ -1,3 +1,4 @@
+// Import des fichiers galerie.js / filtres.js complets
 import galerie from './JS/galerie.js'
 import filtres from './JS/filtres.js'
 
