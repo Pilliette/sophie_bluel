@@ -2,7 +2,7 @@
 const loginBloc = document.querySelector(`.loginBloc`)
 
 // Écoute du form au clic du submit
-loginBloc.addEventListener(`submit`, (event) => {
+loginBloc.addEventListener(`submit`, async (event) => {
 
     // Empêchement du rechargement de la page
     event.preventDefault()
@@ -11,20 +11,36 @@ loginBloc.addEventListener(`submit`, (event) => {
     const email = document.getElementById(`email`).value
     const password = document.getElementById(`password`).value
 
-    // Envoi de la requête d'authentification à l'API
-    fetch(`http://localhost:5678/api/users/login`, {
+    // Tentative d'authentification
+    try {
 
-        method: `post`,
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-            email: email,
-            password: password
+        // Envoi de la requête d'authentification à l'API
+        const reponse = await fetch(`http://localhost:5678/api/users/login`, {
+
+            method: `post`,
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                email: email,
+                password: password
+            })
         })
-    })
 
-    // Redirection vers la page d'accueil (mode éditeur)
-    window.location.href = `../index.html` // À corriger après la création de la page d'édition
+        // Création d'une erreur le cas échéant + arrêt de la requête + redirection jusqu'au catch
+        if (!reponse.ok) {
+            throw new Error()
+        }
 
-    // Stockage du token d'authentification dans le localStorage
-    localStorage.setItem(`token`, data.token)
+        // Conversion de la réponse en JSON
+        const data = await reponse.json()
+
+        // Stockage du token d'authentification dans le localStorage
+        localStorage.setItem(`token`, data.token)
+
+        // Redirection vers la page d'accueil (mode éditeur)
+        window.location.href = `../index.html` // À corriger après la création de la page d'édition
+
+    // Interception de l'erreur + modification du style de .errorMessage pour affiche du message d'erreur
+    } catch (error) {
+        document.querySelector(`.errorMessage`).style.display = `block`
+    }
 })
