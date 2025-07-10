@@ -412,3 +412,21 @@ footer nav ul {
 }
 
 /* FIN MODE ÉDITION */
+
+/* MODALE */
+
+.modale {
+	background: #fff;
+	width: 630px;
+	height: 688px;
+	border-radius: 10px;
+}
+
+.galleryModal {
+	width: 420.06px;
+	display: grid;
+	grid-column: 5fr;
+	gap: 9px;
+}
+
+/* FIN MODALE */
