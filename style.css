@@ -338,3 +338,77 @@ footer nav ul {
 }
 
 /* FIN CONNEXION */
+
+/* MODE ÉDITION */
+
+.editMode {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 11.42px;
+}
+
+.editMode__inactive {
+	background: #000;
+	max-width: 100vw;
+	height: 59px;
+	position: relative;
+	right: 50%;
+	left: 50%;
+	margin-right: -50vw;
+	margin-bottom: 38px;
+	margin-left: -50vw;
+}
+
+.editMode__active {
+	position: absolute;
+	top: 50%;
+	left: calc(50% + (192.25px / 2) + 31px);
+	transform: translateY(-50%);
+}
+
+.editMode i {
+	width: 15.58px;
+}
+
+.editMode p {
+	font-family: 'Work Sans' ;
+}
+
+.editMode__inactive i,
+.editMode__inactive p {
+	color: #fff;
+	background: #000;
+}
+
+.editMode__inactive p {
+	font-size: 16px;
+	font-weight: 400;
+}
+
+.editMode__active p {
+	font-size: 14px;
+	font-weight: 400;
+}
+
+.editMode__projets {
+	height: 36px;
+	text-align: center;
+	position: relative;
+	margin-bottom: 92px;
+}
+
+.editMode__projets h2 {
+	display: inline-block;
+}
+
+.blocForm {
+	display: none;
+}
+
+.editMode__link {
+	color: #000;
+	text-decoration: none;
+}
+
+/* FIN MODE ÉDITION */
