@@ -37,7 +37,7 @@ loginBloc.addEventListener(`submit`, async (event) => {
         localStorage.setItem(`token`, data.token)
 
         // Redirection vers la page d'accueil (mode éditeur)
-        window.location.href = `../index.html` // À corriger après la création de la page d'édition
+        window.location.href = `../pages/edit_mode.html`
 
     // Interception de l'erreur + modification du style de .errorMessage pour affiche du message d'erreur
     } catch (error) {
