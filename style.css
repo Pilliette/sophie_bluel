@@ -265,11 +265,12 @@ li a {
 	margin-bottom: 40px;
 }
 
-input[type="submit"]{
+.contactButton,
+.loginButton {
 	font-family: 'Syne';
 	font-weight: 700;
 	color: white;
-	background-color: #1D6154;
+	background: #1D6154;
 	width: 180px;
 	text-align: center;
 	border-radius: 60px ;
@@ -431,7 +432,7 @@ footer nav ul {
 	left: calc(50% - 315px);
 }
 
-.modale {
+.modal {
 	background: #fff;
 	width: 630px;
 	border-radius: 10px;
@@ -464,7 +465,7 @@ footer nav ul {
 	font-size: 16px;
 }
 
-.modale h3 {
+.modal__title {
 	background: none;
 	font-family: 'Work Sans' ;
 	font-size: 26px;
@@ -483,17 +484,17 @@ footer nav ul {
 	margin-bottom: 67.3px;
 }
 
-.workModal {
+.galleryModal__work {
 	position: relative;
 	display: flex;
 }
 
-.photoModal {
+.galleryModal__photo {
 	width: 76.86px;
 	position: absolute;
 }
 
-.photoModal__trash {
+.galleryModal__trash {
 	background: #000;
 	width: 17px;
 	height: 17px;
@@ -512,6 +513,35 @@ footer nav ul {
 	font-size: 10.29px;
 }
 
+.addPhoto {
+	background: #E8F1F6;
+	width: 420px;
+	height: 169px;
+	border-radius: 3px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.fa-image {
+	color: #B9C5CC;
+	background: none;
+	font-size: 59.62px;
+	width: 76px;
+	height: 76px;
+}
+
+.addPhoto__button {
+	background: none;
+	width: 173px;
+	height: 36px;
+}
+
+.addPhoto__submit {
+	background: #CBD6DC;
+}
+
 .bottomModal {
 	background: none;
 	width: 420px;
@@ -521,11 +551,11 @@ footer nav ul {
 	padding-top: 38px;
 }
 
-.addPhotoButton__bloc {
+.modal__button {
 	background: none;
 }
 
-.addPhotoButton {
+.galleryModal__submit {
 	color: #fff;
 	background: #1D6154;
 	font-family: 'Syne';
