@@ -13,7 +13,7 @@
     <script src="https://kit.fontawesome.com/0a24995ab9.js" crossorigin="anonymous"></script>
 </head>
 
-<body>
+<body class="relativeBody">
 
 	<div class="editMode editMode__inactive">
 		<i class="fa-regular fa-pen-to-square"></i>
@@ -88,89 +88,91 @@
 		
 	</main>
 
-	<section class="modale">
+	<div class="overlayModal">
+		<section class="modale">
 
-		<button><i class="fa-solid fa-xmark"></i></button>
+			<button class="crossModal"><i class="fa-solid fa-xmark"></i></button>
 
-		<h3>Galerie photo</h3>
+			<h3>Galerie photo</h3>
 
-		<div class="galleryModal">
-			<!-- Récupération de la galerie depuis... -->
-			<div>
-				<img src="/assets/images/abajour-tahina.png" alt="">
-				<div>
-					<i class="fa-solid fa-trash-can"></i>
+			<div class="galleryModal">
+				<!-- Récupération de la galerie depuis... -->
+				<div class="workModal">
+					<img class="photoModal" src="/assets/images/abajour-tahina.png" alt="">
+					<div class="photoModal__trash">
+						<i class="fa-solid fa-trash-can"></i>
+					</div>
+				</div>
+				<div class="workModal">
+					<img class="photoModal" src="/assets/images/appartement-paris-v.png" alt="">
+					<div class="photoModal__trash">
+						<i class="fa-solid fa-trash-can"></i>
+					</div>
+				</div>
+				<div class="workModal">
+					<img class="photoModal" src="/assets/images/appartement-paris-x.png" alt="">
+					<div class="photoModal__trash">
+						<i class="fa-solid fa-trash-can"></i>
+					</div>
+				</div>
+				<div class="workModal">
+					<img class="photoModal" src="/assets/images/appartement-paris-xviii.png" alt="">
+					<div class="photoModal__trash">
+						<i class="fa-solid fa-trash-can"></i>
+					</div>
+				</div>
+				<div class="workModal">
+					<img class="photoModal" src="/assets/images/bar-lullaby-paris.png" alt="">
+					<div class="photoModal__trash">
+						<i class="fa-solid fa-trash-can"></i>
+					</div>
+				</div>
+				<div class="workModal">
+					<img class="photoModal" src="/assets/images/hotel-first-arte-new-delhi.png" alt="">
+					<div class="photoModal__trash">
+						<i class="fa-solid fa-trash-can"></i>
+					</div>
+				</div>
+				<div class="workModal">
+					<img class="photoModal" src="/assets/images/la-balisiere.png" alt="">
+					<div class="photoModal__trash">
+						<i class="fa-solid fa-trash-can"></i>
+					</div>
+				</div>
+				<div class="workModal">
+					<img class="photoModal" src="/assets/images/le-coteau-cassis.png" alt="">
+					<div class="photoModal__trash">
+						<i class="fa-solid fa-trash-can"></i>
+					</div>
+				</div>
+				<div class="workModal">
+					<img class="photoModal" src="/assets/images/restaurant-sushisen-londres.png" alt="">
+					<div class="photoModal__trash">
+						<i class="fa-solid fa-trash-can"></i>
+					</div>
+				</div>
+				<div class="workModal">
+					<img class="photoModal" src="/assets/images/structures-thermopolis.png" alt="">
+					<div class="photoModal__trash">
+						<i class="fa-solid fa-trash-can"></i>
+					</div>
+				</div>
+				<div class="workModal">
+					<img class="photoModal" src="/assets/images/villa-ferneze.png" alt="">
+					<div class="photoModal__trash">
+						<i class="fa-solid fa-trash-can"></i>
+					</div>
 				</div>
 			</div>
-			<div>
-				<img src="/assets/images/appartement-paris-v.png" alt="">
-				<div>
-					<i class="fa-solid fa-trash-can"></i>
-				</div>
-			</div>
-			<div>
-				<img src="/assets/images/appartement-paris-x.png" alt="">
-				<div>
-					<i class="fa-solid fa-trash-can"></i>
-				</div>
-			</div>
-			<div>
-				<img src="/assets/images/appartement-paris-xviii.png" alt="">
-				<div>
-					<i class="fa-solid fa-trash-can"></i>
-				</div>
-			</div>
-			<div>
-				<img src="/assets/images/bar-lullaby-paris.png" alt="">
-				<div>
-					<i class="fa-solid fa-trash-can"></i>
-				</div>
-			</div>
-			<div>
-				<img src="/assets/images/hotel-first-arte-new-delhi.png" alt="">
-				<div>
-					<i class="fa-solid fa-trash-can"></i>
-				</div>
-			</div>
-			<div>
-				<img src="/assets/images/la-balisiere.png" alt="">
-				<div>
-					<i class="fa-solid fa-trash-can"></i>
-				</div>
-			</div>
-			<div>
-				<img src="/assets/images/le-coteau-cassis.png" alt="">
-				<div>
-					<i class="fa-solid fa-trash-can"></i>
-				</div>
-			</div>
-			<div>
-				<img src="/assets/images/restaurant-sushisen-londres.png" alt="">
-				<div>
-					<i class="fa-solid fa-trash-can"></i>
-				</div>
-			</div>
-			<div>
-				<img src="/assets/images/structures-thermopolis.png" alt="">
-				<div>
-					<i class="fa-solid fa-trash-can"></i>
-				</div>
-			</div>
-			<div>
-				<img src="/assets/images/villa-ferneze.png" alt="">
-				<div>
-					<i class="fa-solid fa-trash-can"></i>
-				</div>
-			</div>
-		</div>
 
-		<div>
-			<div class="addPhotoButton__bloc">
-				<input class="addPhotoButton" type="submit" value="Ajouter une photo">
+			<div class="bottomModal">
+				<div class="addPhotoButton__bloc">
+					<input class="addPhotoButton" type="submit" value="Ajouter une photo">
+				</div>
 			</div>
-		</div>
-		
-	</section>
+			
+		</section>
+	</div>
 
 	<footer>
 		<nav>

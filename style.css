@@ -392,6 +392,7 @@ footer nav ul {
 }
 
 .editMode__projets {
+	background: none;
 	height: 36px;
 	text-align: center;
 	position: relative;
@@ -411,18 +412,129 @@ footer nav ul {
 
 /* MODALE */
 
+.relativeBody {
+	position: relative;
+}
+
+.relativeBody::before {
+	content: "";
+	background: rgba(0, 0, 0, 0.3);
+	position: fixed;
+	inset: 0;
+	pointer-events: none;
+}
+
+.overlayModal {
+	background: none;
+	position: absolute;
+	top: 660px;
+	left: calc(50% - 315px);
+}
+
 .modale {
 	background: #fff;
 	width: 630px;
-	height: 688px;
 	border-radius: 10px;
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	align-items: center;
+	padding-top: 60px;
+	padding-bottom: 45px;
+	margin: 0;
+}
+
+.crossModal {
+	background: none;
+	width: 24px;
+	height: 24px;
+	border: none;
+	position: absolute;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	top: 26px;
+	right: 30px;
+}
+
+.fa-xmark {
+	color: #000;
+	background: none;
+	font-size: 16px;
+}
+
+.modale h3 {
+	background: none;
+	font-family: 'Work Sans' ;
+	font-size: 26px;
+	font-weight: 400;
+	height: 30px;
+	margin-bottom: 46px;
 }
 
 .galleryModal {
+	background: none;
 	width: 420.06px;
+	height: 365.71px;
 	display: grid;
-	grid-column: 5fr;
-	gap: 9px;
+	grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+	gap: 29px 9px;
+	margin-bottom: 67.3px;
+}
+
+.workModal {
+	position: relative;
+	display: flex;
+}
+
+.photoModal {
+	width: 76.86px;
+	position: absolute;
+}
+
+.photoModal__trash {
+	background: #000;
+	width: 17px;
+	height: 17px;
+	border-radius: 2px;
+	position: absolute;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	top: 6px;
+	right: 4.86px;
+}
+
+.fa-trash-can {
+	color: #fff;
+	background: none;
+	font-size: 10.29px;
+}
+
+.bottomModal {
+	background: none;
+	width: 420px;
+	border-top: solid 1px #B3B3B3;
+	display: flex;
+	justify-content: center;
+	padding-top: 38px;
+}
+
+.addPhotoButton__bloc {
+	background: none;
+}
+
+.addPhotoButton {
+	color: #fff;
+	background: #1D6154;
+	font-family: 'Syne';
+	font-size: 14px;
+	font-weight: 700;
+	width: 237px;
+	height: 36px;
+	border: none;
+	border-radius: 60px;
 }
 
 /* FIN MODALE */
