@@ -135,6 +135,7 @@ li a {
 	margin-bottom: 0.5em;
 }
 #portfolio h2 {
+	background: none;
 	text-align: center;
 	margin-bottom: 51px;
 }
@@ -409,10 +410,16 @@ footer nav ul {
 }
 
 .editMode__projets {
-	background: none;
 	height: 36px;
 	text-align: center;
 	margin-bottom: 92px;
+}
+
+.editMode__active,
+.editMode__active i,
+.editMode__active p,
+.editMode__projets {
+	background: none;
 }
 
 .editMode__inactive,
@@ -433,13 +440,13 @@ footer nav ul {
 
 /************************************************** MODALE **************************************************/
 
-.relativeBody::before {
+/* .relativeBody::before {
 	content: "";
 	background: rgba(0, 0, 0, 0.3);
 	position: fixed;
 	inset: 0;
 	pointer-events: none;
-}
+} */
 
 .overlayModal {
 	top: 660px;
