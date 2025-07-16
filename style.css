@@ -139,18 +139,15 @@ li a {
 	margin-bottom: 51px;
 }
 
-/* FILTRES */
+/************************************************** FILTRES **************************************************/
 
 .blocForm {
-	display: flex;
-	justify-content: center;
 	margin-bottom: 50px;
 }
 
 .filtres {
 	width: 585px;
 	height: 38px;
-	display: flex;
 	justify-content: space-between;
 	gap: 10px;
 }
@@ -162,13 +159,21 @@ li a {
 }
 
 .bouton {
-	background: none;
 	width: 100%;
 	border: solid 1px #1D6154;
 	border-radius: 60px;
-	display: flex;
-	justify-content: center;
 	align-items: center;
+}
+
+.blocForm,
+.filtres,
+.bouton {
+    display: flex;
+}
+
+.blocForm,
+.bouton {
+	justify-content: center;
 }
 
 .bouton--appartements {
@@ -181,11 +186,15 @@ li a {
 
 .categorie {
 	color: #1D6154;
-	background: none;
 	font-family: 'Syne';
 	font-size: 16px;
 	font-weight: 700;
 	white-space: nowrap;
+}
+
+.bouton,
+.categorie {
+	background: none;
 }
 
 .bouton__radio:checked + .bouton {
@@ -196,7 +205,7 @@ li a {
 	color: #FFFFFF;
 }
 
-/* FIN FILTRES */
+/************************************************** FIN FILTRES **************************************************/
 
 .gallery {
 	width: 100%;
@@ -304,7 +313,7 @@ footer nav ul {
 	padding: 24px 107px 0 0;
 }
 
-/* CONNEXION */
+/************************************************** CONNEXION **************************************************/
 
 #login {
 	display: flex;
@@ -314,9 +323,6 @@ footer nav ul {
 
 .errorMessage {
 	color: #ff0000;
-	font-family: 'Work Sans';
-	font-size: 14px;
-	font-weight: 500;
 	display: none;
 	margin-bottom: 40px;
 }
@@ -333,14 +339,18 @@ footer nav ul {
 
 .forgotPassword {
 	color: #3D3D3D;
+}
+
+.errorMessage,
+.forgotPassword {
 	font-family: 'Work Sans';
 	font-size: 14px;
 	font-weight: 500;
 }
 
-/* FIN CONNEXION */
+/************************************************** FIN CONNEXION **************************************************/
 
-/* MODE ÉDITION */
+/************************************************** MODE ÉDITION **************************************************/
 
 .editMode {
 	display: flex;
@@ -350,10 +360,8 @@ footer nav ul {
 }
 
 .editMode__inactive {
-	background: #000;
 	max-width: 100vw;
 	height: 59px;
-	position: relative;
 	right: 50%;
 	left: 50%;
 	margin-right: -50vw;
@@ -376,19 +384,27 @@ footer nav ul {
 	font-family: 'Work Sans' ;
 }
 
+.editMode__inactive p {
+	font-size: 16px;
+}
+
+.editMode__inactive,
 .editMode__inactive i,
 .editMode__inactive p {
-	color: #fff;
 	background: #000;
 }
 
+.editMode__inactive i,
 .editMode__inactive p {
-	font-size: 16px;
-	font-weight: 400;
+	color: #fff;
 }
 
 .editMode__active p {
 	font-size: 14px;
+}
+
+.editMode__inactive p,
+.editMode__active p {
 	font-weight: 400;
 }
 
@@ -396,8 +412,12 @@ footer nav ul {
 	background: none;
 	height: 36px;
 	text-align: center;
-	position: relative;
 	margin-bottom: 92px;
+}
+
+.editMode__inactive,
+.editMode__projets {
+	position: relative;
 }
 
 .editMode__projets h2 {
@@ -409,13 +429,9 @@ footer nav ul {
 	text-decoration: none;
 }
 
-/* FIN MODE ÉDITION */
+/************************************************** FIN MODE ÉDITION **************************************************/
 
-/* MODALE */
-
-.relativeBody {
-	position: relative;
-}
+/************************************************** MODALE **************************************************/
 
 .relativeBody::before {
 	content: "";
@@ -426,56 +442,63 @@ footer nav ul {
 }
 
 .overlayModal {
-	background: none;
-	position: absolute;
 	top: 660px;
 	left: calc(50% - 315px);
 }
 
 .modal {
-	background: #fff;
 	width: 630px;
 	border-radius: 10px;
-	position: relative;
-	display: flex;
-	flex-direction: column;
 	justify-content: space-between;
-	align-items: center;
 	padding-top: 60px;
 	padding-bottom: 45px;
 	margin: 0;
 }
 
+.addPhoto__arrow {
+	width: 21px;
+	height: 21px;
+	left: 30px;
+}
+
+.fa-arrow-left {
+	font-size: 21px;
+}
+
 .crossModal {
-	background: none;
 	width: 24px;
 	height: 24px;
-	border: none;
-	position: absolute;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	top: 26px;
 	right: 30px;
 }
 
+.addPhoto__arrow,
+.crossModal {
+	top: 26px;
+}
+
 .fa-xmark {
-	color: #000;
-	background: none;
 	font-size: 16px;
 }
 
+.fa-arrow-left,
+.fa-xmark {
+	color: #000;
+}
+
 .modal__title {
-	background: none;
-	font-family: 'Work Sans' ;
 	font-size: 26px;
-	font-weight: 400;
 	height: 30px;
+}
+
+.galleryModal__title {
 	margin-bottom: 46px;
 }
 
+.addPhoto__title {
+	margin-bottom: 36px;
+}
+
 .galleryModal {
-	background: none;
 	width: 420.06px;
 	height: 365.71px;
 	display: grid;
@@ -484,14 +507,8 @@ footer nav ul {
 	margin-bottom: 67.3px;
 }
 
-.galleryModal__work {
-	position: relative;
-	display: flex;
-}
-
 .galleryModal__photo {
 	width: 76.86px;
-	position: absolute;
 }
 
 .galleryModal__trash {
@@ -499,72 +516,219 @@ footer nav ul {
 	width: 17px;
 	height: 17px;
 	border-radius: 2px;
-	position: absolute;
-	display: flex;
-	justify-content: center;
-	align-items: center;
 	top: 6px;
 	right: 4.86px;
 }
 
 .fa-trash-can {
-	color: #fff;
-	background: none;
 	font-size: 10.29px;
 }
 
 .addPhoto {
 	background: #E8F1F6;
-	width: 420px;
-	height: 169px;
+	height: auto;
+	max-height: 169px;
 	border-radius: 3px;
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
+	padding-bottom: 0;
+	margin-bottom: 30px;
+}
+
+.modal,
+.crossModal,
+.galleryModal__trash,
+.addPhoto {
 	align-items: center;
+}
+
+.modal,
+.addPhoto__form {
+	background: #fff;
+}
+
+.modal,
+.addPhoto,
+.addPhoto__form {
+	flex-direction: column;
 }
 
 .fa-image {
 	color: #B9C5CC;
-	background: none;
-	font-size: 59.62px;
-	width: 76px;
-	height: 76px;
-}
-
-.addPhoto__button {
-	background: none;
-	width: 173px;
-	height: 36px;
+	font-size: 68.14px;
+	margin-top: 22.5px;
+	margin-bottom: 12.88px;
 }
 
 .addPhoto__submit {
+	color: #306685;
 	background: #CBD6DC;
+	width: 173px;
+	border-radius: 50px;
+	margin-bottom: 7px;
+}
+
+.addPhoto p {
+	color: #444444;
+	font-size: 10px;
+	height: 12px;
+	margin-bottom: 19px;
+}
+
+.modal__title,
+.addPhoto p {
+	font-weight: 400;
+}
+
+.addPhoto__photo {
+	height: 169px;
+}
+
+.addPhoto__form label {
+	color: #3D3D3D;
+	height: 16px;
+	margin-bottom: 10px;
+}
+
+.modal__title,
+.addPhoto__submit,
+.addPhoto p,
+.addPhoto__form label {
+	font-family: 'Work Sans';
+}
+
+.addPhoto__submit,
+.addPhoto__form label {
+	font-weight: 500;
+}
+
+#addPhoto__addTitle,
+#addPhoto__selectCategory {
+	height: 51px;
+	box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
+}
+
+.relativeBody,
+.modal,
+.galleryModal__work,
+#addPhoto__selectCategory {
+	position: relative;
+}
+
+#addPhoto__addTitle {
+	margin-bottom: 21px;
+}
+
+#addPhoto__selectCategory {
+	appearance: none;
+	margin-bottom: 47px;
+}
+
+.fa-chevron-down {
+	color: #6C6C6C;
+	font-size: 11.18px;
+	width: 11.18px;
+	height: 11.18px;
+	top: calc(449px + 20px + 11.18px);
+	right: calc(105px + 19.82px);
+}
+
+.overlayModal,
+.addPhoto__arrow,
+.crossModal,
+.galleryModal__photo,
+.galleryModal__trash,
+.fa-chevron-down {
+	position: absolute;
 }
 
 .bottomModal {
-	background: none;
-	width: 420px;
 	border-top: solid 1px #B3B3B3;
-	display: flex;
-	justify-content: center;
 	padding-top: 38px;
 }
 
+.overlayModal,
+.addPhoto__arrow,
+.fa-arrow-left,
+.crossModal,
+.fa-xmark,
+.modal__title,
+.galleryModal,
+.fa-trash-can,
+.fa-image,
+.addPhoto__button,
+.addPhoto p,
+.addPhoto__form label,
+.fa-chevron-down,
+.bottomModal,
 .modal__button {
 	background: none;
 }
 
-.galleryModal__submit {
-	color: #fff;
-	background: #1D6154;
+.modal,
+.crossModal,
+.galleryModal__work,
+.galleryModal__trash,
+.addPhoto,
+.addPhoto__form,
+.bottomModal {
+	display: flex;
+}
+
+.crossModal,
+.galleryModal__trash,
+.bottomModal {
+	justify-content: center;
+}
+
+.addPhoto,
+.addPhoto__form,
+.bottomModal {
+	width: 420px;
+}
+
+.galleryModal__submit,
+.addPhoto__validSubmit {
 	font-family: 'Syne';
-	font-size: 14px;
 	font-weight: 700;
 	width: 237px;
-	height: 36px;
-	border: none;
 	border-radius: 60px;
 }
 
-/* FIN MODALE */
+.addPhoto__arrow,
+.crossModal,
+.addPhoto__submit,
+#addPhoto__addTitle,
+#addPhoto__selectCategory,
+.galleryModal__submit,
+.addPhoto__validSubmit {
+	border: none;
+}
+
+.fa-trash-can,
+.galleryModal__submit,
+.addPhoto__validSubmit {
+	color: #fff;
+}
+
+.addPhoto__submit,
+.addPhoto__form label,
+.galleryModal__submit,
+.addPhoto__validSubmit {
+	font-size: 14px;
+}
+
+.addPhoto__submit,
+.galleryModal__submit,
+.addPhoto__validSubmit {
+	height: 36px;
+}
+
+.galleryModal__submit,
+.addPhoto__validSubmit--green {
+	background: #1D6154;
+}
+
+.addPhoto__validSubmit--grey {
+	background: #A7A7A7;
+}
+
+/************************************************** FIN MODALE **************************************************/
