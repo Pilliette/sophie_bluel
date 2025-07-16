@@ -440,15 +440,24 @@ footer nav ul {
 
 /************************************************** MODALE **************************************************/
 
-/* .relativeBody::before {
+.relativeBody::before {
+	position: unset;
+}
+
+.relativeBody__edit::before {
 	content: "";
 	background: rgba(0, 0, 0, 0.3);
 	position: fixed;
 	inset: 0;
 	pointer-events: none;
-} */
+}
 
 .overlayModal {
+	display: none;
+}
+
+.overlayModal__edit {
+	display: block;
 	top: 660px;
 	left: calc(50% - 315px);
 }
@@ -638,7 +647,7 @@ footer nav ul {
 	right: calc(105px + 19.82px);
 }
 
-.overlayModal,
+.overlayModal__edit,
 .addPhoto__arrow,
 .crossModal,
 .galleryModal__photo,
@@ -652,7 +661,7 @@ footer nav ul {
 	padding-top: 38px;
 }
 
-.overlayModal,
+.overlayModal__edit,
 .addPhoto__arrow,
 .fa-arrow-left,
 .crossModal,
