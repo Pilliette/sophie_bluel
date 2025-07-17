@@ -7,4 +7,11 @@ import modale from './JS/modale.js'
 galerie.chargerGalerie(galerie.allWorks)
 
 // Appel de la fonction pour afficher les filtres
-filtres.filtrer(galerie.allWorks, galerie.chargerGalerie)
+if (document.querySelector(`.blocForm`)) {
+    filtres.filtrer(galerie.allWorks, galerie.chargerGalerie)
+}
+
+// Appel de la fonction pour initialiser la modale
+if (document.querySelector(`.overlayModal`)) {
+    modale.initialiserModale(galerie.allWorks)
+}
