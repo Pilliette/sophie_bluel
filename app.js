@@ -1,4 +1,4 @@
-// Import des fichiers galerie.js / filtres.js complets
+// Import des fichiers galerie.js / filtres.js / modale.js complets
 import galerie from './JS/galerie.js'
 import filtres from './JS/filtres.js'
 import modale from './JS/modale.js'

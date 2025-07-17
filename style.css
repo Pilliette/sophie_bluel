@@ -371,6 +371,7 @@ footer nav ul {
 }
 
 .editMode__active {
+	cursor: pointer;
 	position: absolute;
 	top: 50%;
 	left: calc(50% + (192.25px / 2) + 31px);

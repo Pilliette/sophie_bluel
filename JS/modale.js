@@ -8,31 +8,31 @@ function afficherModale(galerie) {
     modal.className = `modal`
     overlayModal.appendChild(modal)
 
-        const addPhoto__arrow = document.createElement(`button`)
-        addPhoto__arrow.className = `addPhoto__arrow`
-        modal.appendChild(addPhoto__arrow)
+        const addPhotoArrow = document.createElement(`button`)
+        addPhotoArrow.className = `addPhoto__arrow`
+        modal.appendChild(addPhotoArrow)
 
-            const fa_arrow_left = document.createElement(`i`)
-            fa_arrow_left.className = `fa-solid fa-arrow-left`
-            addPhoto__arrow.appendChild(fa_arrow_left)
+            const c = document.createElement(`i`)
+            faArrowLeft.className = `fa-solid fa-arrow-left`
+            addPhotoArrow.appendChild(faArrowLeft)
 
         const crossModal = document.createElement(`button`)
         crossModal.className = `crossModal`
         modal.appendChild(crossModal)
 
-            const fa_xmark = document.createElement(`i`)
-            fa_xmark.className = `fa-solid fa-xmark`
-            crossModal.appendChild(fa_xmark)
+            const faXmark = document.createElement(`i`)
+            faXmark.className = `fa-solid fa-xmark`
+            crossModal.appendChild(faXmark)
 
-        const galleryModal__title = document.createElement(`h3`)
-        galleryModal__title.className = `modal__title galleryModal__title`
-        galleryModal__title.textContent = `Galerie photo`
-        modal.appendChild(galleryModal__title)
+        const galleryModalTitle = document.createElement(`h3`)
+        galleryModalTitle.className = `modal__title galleryModal__title`
+        galleryModalTitle.textContent = `Galerie photo`
+        modal.appendChild(galleryModalTitle)
 
-        const addPhoto__title = document.createElement(`h3`)
-        addPhoto__title.className = `modal__title addPhoto__title`
-        addPhoto__title.textContent = `Ajout photo`
-        modal.appendChild(addPhoto__title)
+        const addPhotoTitle = document.createElement(`h3`)
+        addPhotoTitle.className = `modal__title addPhoto__title`
+        addPhotoTitle.textContent = `Ajout photo`
+        modal.appendChild(addPhotoTitle)
         
         const galleryModal = document.createElement(`div`)
         galleryModal.className = `galleryModal`
@@ -40,23 +40,23 @@ function afficherModale(galerie) {
 
             galerie.forEach(uniqueWork => {
 
-                const galleryModal__work = document.createElement(`div`)
-                galleryModal__work.className = `galleryModal__work`
-                galleryModal.appendChild(galleryModal__work)
+                const galleryModalWork = document.createElement(`div`)
+                galleryModalWork.className = `galleryModal__work`
+                galleryModal.appendChild(galleryModalWork)
 
-                    const galleryModal__photo = document.createElement(`img`)
-                    galleryModal__photo.className = `galleryModal__photo`
-                    galleryModal__photo.src = uniqueWork.imageUrl
-                    galleryModal__photo.alt = uniqueWork.title
-                    galleryModal__work.appendChild(galleryModal__photo)
+                    const galleryModalPhoto = document.createElement(`img`)
+                    galleryModalPhoto.className = `galleryModal__photo`
+                    galleryModalPhoto.src = uniqueWork.imageUrl
+                    galleryModalPhoto.alt = uniqueWork.title
+                    galleryModalWork.appendChild(galleryModalPhoto)
 
-                    const galleryModal__trash = document.createElement(`div`)
-                    galleryModal__trash.className = `galleryModal__trash`
-                    galleryModal__work.appendChild(galleryModal__trash)
+                    const galleryModalTrash = document.createElement(`div`)
+                    galleryModalTrash.className = `galleryModal__trash`
+                    galleryModalWork.appendChild(galleryModalTrash)
 
-                        const fa_trash_can = document.createElement(`i`)
-                        fa_trash_can.className = `fa-solid fa-trash-can`
-                        galleryModal__trash.appendChild(fa_trash_can)
+                        const faTrashCan = document.createElement(`i`)
+                        faTrashCan.className = `fa-solid fa-trash-can`
+                        galleryModalTrash.appendChild(faTrashCan)
 
             })
         
@@ -64,111 +64,101 @@ function afficherModale(galerie) {
         addPhoto.className = `addPhoto`
         modal.appendChild(addPhoto)
 
-            const fa_image = document.createElement(`i`)
-            fa_image.className = `fa-regular fa-image`
-            addPhoto.appendChild(fa_image)
+            const faImage = document.createElement(`i`)
+            faImage.className = `fa-regular fa-image`
+            addPhoto.appendChild(faImage)
             
-            const addPhoto__button = document.createElement(`div`)
-            addPhoto__button.className = `addPhoto__button`
-            addPhoto.appendChild(addPhoto__button)
+            const addPhotoButton = document.createElement(`div`)
+            addPhotoButton.className = `addPhoto__button`
+            addPhoto.appendChild(addPhotoButton)
 
-                const addPhoto__submit = document.createElement(`input`)
-                addPhoto__submit.className = `addPhoto__submit`
-                addPhoto__submit.type = `submit`
-                addPhoto__submit.value = `+ Ajouter photo`
-                addPhoto__button.appendChild(addPhoto__submit)
+                const addPhotoSubmit = document.createElement(`input`)
+                addPhotoSubmit.className = `addPhoto__submit`
+                addPhotoSubmit.type = `submit`
+                addPhotoSubmit.value = `+ Ajouter photo`
+                addPhotoButton.appendChild(addPhotoSubmit)
             
-            const addPhoto__p = document.createElement(`p`)
-            addPhoto__p.textContent = `jpg, png : 4mo max`
-            addPhoto.appendChild(addPhoto__p)
+            const addPhotoP = document.createElement(`p`)
+            addPhotoP.textContent = `jpg, png : 4mo max`
+            addPhoto.appendChild(addPhotoP)
             
-            const addPhoto__photo = document.createElement(`img`)
-            addPhoto__photo.className = `addPhoto__photo`
-            // addPhoto__photo.src =
-            // addPhoto__photo.alt =
-            addPhoto.appendChild(addPhoto__photo)
+            const addPhotoPhoto = document.createElement(`img`)
+            addPhotoPhoto.className = `addPhoto__photo`
+            // addPhotoPhoto.src =
+            // addPhotoPhoto.alt =
+            addPhoto.appendChild(addPhotoPhoto)
         
-        const addPhoto__form = document.createElement(`form`)
-        addPhoto__form.className = `addPhoto__form`
-        addPhoto__form.action = `#`
-        addPhoto__form.method = `post`
-        modal.appendChild(addPhoto__form)
+        const addPhotoForm = document.createElement(`form`)
+        addPhotoForm.className = `addPhoto__form`
+        addPhotoForm.action = `#`
+        addPhotoForm.method = `post`
+        modal.appendChild(addPhotoForm)
 
-            const addPhoto__form__inputLabel = document.createElement(`label`)
-            addPhoto__form__inputLabel.htmlFor = `addPhoto__addTitle`
-            addPhoto__form__inputLabel.textContent = `Titre`
-            addPhoto__form.appendChild(addPhoto__form__inputLabel)
+            const addPhotoFormInputLabel = document.createElement(`label`)
+            addPhotoFormInputLabel.htmlFor = `addPhoto__addTitle`
+            addPhotoFormInputLabel.textContent = `Titre`
+            addPhotoForm.appendChild(addPhotoFormInputLabel)
 
-            const addPhoto__addTitle = document.createElement(`input`)
-            addPhoto__addTitle.type = `text`
-            addPhoto__addTitle.name = `addPhoto__addTitle`
-            addPhoto__addTitle.id = `addPhoto__addTitle`
-            addPhoto__form.appendChild(addPhoto__addTitle)
+            const addPhotoAddTitle = document.createElement(`input`)
+            addPhotoAddTitle.type = `text`
+            addPhotoAddTitle.name = `addPhoto__addTitle`
+            addPhotoAddTitle.id = `addPhoto__addTitle`
+            addPhotoForm.appendChild(addPhotoAddTitle)
             
-            const addPhoto__form__selectLabel = document.createElement(`label`)
-            addPhoto__form__selectLabel.htmlFor = `addPhoto__selectCategory`
-            addPhoto__form__selectLabel.textContent = `Catégorie`
-            addPhoto__form.appendChild(addPhoto__form__selectLabel)
+            const addPhotoFormSelectLabel = document.createElement(`label`)
+            addPhotoFormSelectLabel.htmlFor = `addPhoto__selectCategory`
+            addPhotoFormSelectLabel.textContent = `Catégorie`
+            addPhotoForm.appendChild(addPhotoFormSelectLabel)
 
-            const addPhoto__selectCategory = document.createElement(`select`)
-            addPhoto__selectCategory.name = `addPhoto__selectCategory`
-            addPhoto__selectCategory.id = `addPhoto__selectCategory`
-            addPhoto__form.appendChild(addPhoto__selectCategory)
+            const addPhotoSelectCategory = document.createElement(`select`)
+            addPhotoSelectCategory.name = `addPhoto__selectCategory`
+            addPhotoSelectCategory.id = `addPhoto__selectCategory`
+            addPhotoForm.appendChild(addPhotoSelectCategory)
             
-            const fa_chevron_down = document.createElement(`i`)
-            fa_chevron_down.className = `fa-solid fa-chevron-down`
-            addPhoto__form.appendChild(fa_chevron_down)
+            const faChevronDown = document.createElement(`i`)
+            faChevronDown.className = `fa-solid fa-chevron-down`
+            addPhotoForm.appendChild(faChevronDown)
         
         const bottomModal = document.createElement(`div`)
         bottomModal.className = `bottomModal`
         modal.appendChild(bottomModal)
 
-            const galleryModal__button = document.createElement(`div`)
-            galleryModal__button.className = `modal__button galleryModal__button`
-            bottomModal.appendChild(galleryModal__button)
+            const galleryModalButton = document.createElement(`div`)
+            galleryModalButton.className = `modal__button galleryModal__button`
+            bottomModal.appendChild(galleryModalButton)
 
-                const galleryModal__submit = document.createElement(`input`)
-                galleryModal__submit.className = `galleryModal__submit`
-                galleryModal__submit.type = `submit`
-                galleryModal__submit.value = `Ajouter une photo`
-                galleryModal__button.appendChild(galleryModal__submit)
+                const galleryModalSubmit = document.createElement(`input`)
+                galleryModalSubmit.className = `galleryModal__submit`
+                galleryModalSubmit.type = `submit`
+                galleryModalSubmit.value = `Ajouter une photo`
+                galleryModalButton.appendChild(galleryModalSubmit)
                 
-            const addPhoto__validButton = document.createElement(`div`)
-            addPhoto__validButton.className = `modal__button addPhoto__validButton`
-            bottomModal.appendChild(addPhoto__validButton)
+            const addPhotoValidButton = document.createElement(`div`)
+            addPhotoValidButton.className = `modal__button addPhoto__validButton`
+            bottomModal.appendChild(addPhotoValidButton)
             
-                const addPhoto__validSubmit = document.createElement(`input`)
-                addPhoto__validSubmit.className = `addPhoto__validSubmit addPhoto__validSubmit--grey addPhoto__validSubmit--green`
-                addPhoto__validSubmit.type = `submit`
-                addPhoto__validSubmit.value = `Valider`
-                addPhoto__validButton.appendChild(addPhoto__validSubmit)
+                const addPhotoValidSubmit = document.createElement(`input`)
+                addPhotoValidSubmit.className = `addPhoto__validSubmit addPhoto__validSubmit--grey addPhoto__validSubmit--green`
+                addPhotoValidSubmit.type = `submit`
+                addPhotoValidSubmit.value = `Valider`
+                addPhoto__validButton.appendChild(addPhotoValidSubmit)
     //@formatter:on
 
 }
 
-// Affichage de la modale au clic de "modifier"
-function editMode__active__listener(allWorks) {
+// Sélection des classes nécessaires à l'affichage de la modale
+const relativeBody = document.querySelector(`.relativeBody`)
+const editModeActive = document.querySelector(`.editMode__active`)
 
-    // Sélection des classes nécessaires à l'affichage de la modale
-    const relativeBody = document.querySelector(`.relativeBody`)
-    const editMode__active = document.querySelector(`.editMode__active`)
-    const overlayModal = document.querySelector(`.overlayModal`)
+// Écoute du clic de .editMode__active + appel de la fonction pour afficher la modale
+editModeActive.addEventListener(`click`, () => {
 
-    // Écoute du clic de .editMode__active + appel de la fonction pour afficher la modale
-    editMode__active.addEventListener(`click`, () => {
+    relativeBody.classList.toggle(`relativeBody__edit`)
 
-        relativeBody.classList.toggle(`relativeBody__edit`)
-        overlayModal.classList.add(`overlayModal__edit`)
-
-        afficherModale(allWorks)
-
-    })
-}
+})
 
 export default {
     afficherModale,
-    editMode__active__listener,
     relativeBody,
-    editMode__active,
-    overlayModal
+    editModeActive
 }
