@@ -1,5 +1,5 @@
 // Affichage de la modale
-function afficherModale(creerModale, allWorks, overlayModal, addWork) {
+function afficherModale(creerModale, allWorks, overlayModal, addWork, validWork) {
 
     // Sélection des classes pour l'affichage de la modale
     const relativeBody = document.querySelector(`.relativeBody`)
@@ -20,6 +20,8 @@ function afficherModale(creerModale, allWorks, overlayModal, addWork) {
             creerModale(allWorks, overlayModal)
 
             addWork()
+
+            validWork()
 
         }
 

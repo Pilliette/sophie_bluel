@@ -16,7 +16,7 @@ function addWork () {
 
         event.preventDefault()
 
-        // Modification des classes pour afficher la modale "Ajout photo"
+        // Modification des classes pour afficher la modale "Ajout projet"
         addPhotoArrow.classList.toggle(`addPhoto__arrow--active`)
         galleryModalTitle.classList.toggle(`galleryModal__title--inactive`)
         addPhotoTitle.classList.toggle(`addPhoto__title--active`)
@@ -30,6 +30,31 @@ function addWork () {
 
 }
 
+function validWork () {
+
+    // Sélection des éléments HTML
+    const addPhotoValidButton = document.querySelector(`.addPhoto__validButton`)
+
+    if (addPhotoValidButton) {
+
+        // Écoute au clic de .addPhoto__validButton--active
+        addPhotoValidButton.addEventListener(`click`, (event) => {
+
+            event.preventDefault()
+
+            console.log(`Clic clac, merci Kodak`);
+            
+            // Modification des classes pour afficher la modale "Valider projet"
+            // Cacher <i>, <div>, <input>, <p>
+            // Afficher <img>
+
+        })
+
+    }
+
+}
+
 export default {
-    addWork
+    addWork,
+    validWork
 }

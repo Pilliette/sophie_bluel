@@ -18,5 +18,15 @@ const overlayModal = document.querySelector(`.overlayModal`)
 
 // Appel de la fonction pour initialiser la modale
 if (document.querySelector(`.overlayModal`)) {
-    modaleAffichage.afficherModale(modaleCreation.creerModale, galerie.allWorks, overlayModal, modaleGestion.addWork)
+
+    modaleAffichage.afficherModale(
+
+        modaleCreation.creerModale,
+        galerie.allWorks,
+        overlayModal,
+        modaleGestion.addWork,
+        modaleGestion.validWork
+        
+    )
+
 }

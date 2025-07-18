@@ -717,7 +717,8 @@ footer nav ul {
 	display: none;
 }
 
-.galleryModal__submit {
+.galleryModal__submit,
+.addPhoto__validSubmit {
 	cursor: pointer;
 }
 
