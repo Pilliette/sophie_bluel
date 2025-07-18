@@ -1,7 +1,7 @@
 // Affichage de la modale
-function afficherModale(creerModale, allWorks, overlayModal) {
+function afficherModale(creerModale, allWorks, overlayModal, addWork) {
 
-    // Sélection des classes nécessaires à l'affichage de la modale
+    // Sélection des classes pour l'affichage de la modale
     const relativeBody = document.querySelector(`.relativeBody`)
     const editModeActive = document.querySelector(`.editMode__active`)
 
@@ -13,8 +13,14 @@ function afficherModale(creerModale, allWorks, overlayModal) {
         relativeBody.classList.toggle(`relativeBody__edit`)
 
         // Vérification d'une création unique de la modale
-        if (!document.querySelector(`.modal`)) {
+        const modalExiste = document.querySelector(`.modal`)
+
+        if (!modalExiste) {
+
             creerModale(allWorks, overlayModal)
+
+            addWork()
+
         }
 
         overlayModal.classList.toggle(`overlayModal__edit`)

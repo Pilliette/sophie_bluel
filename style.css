@@ -516,6 +516,10 @@ footer nav ul {
 	margin-bottom: 46px;
 }
 
+.galleryModal__title--inactive {
+	display: none;
+}
+
 .addPhoto__title {
 	display: none;
 }
@@ -532,6 +536,10 @@ footer nav ul {
 	grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
 	gap: 29px 9px;
 	margin-bottom: 67.3px;
+}
+
+.galleryModal--inactive {
+	display: none;
 }
 
 .galleryModal__photo {
@@ -664,7 +672,7 @@ footer nav ul {
 	font-size: 11.18px;
 	width: 11.18px;
 	height: 11.18px;
-	top: calc(449px + 20px + 11.18px);
+	top: calc(469px);
 	right: calc(105px + 19.82px);
 }
 
@@ -703,6 +711,10 @@ footer nav ul {
 .galleryModal__button,
 .addPhoto__validButton--active {
 	background: none;
+}
+
+.galleryModal__button--inactive {
+	display: none;
 }
 
 .galleryModal__submit {
