@@ -473,8 +473,13 @@ footer nav ul {
 }
 
 .addPhoto__arrow {
+	display: none;
+}
+
+.addPhoto__arrow--active {
 	width: 21px;
 	height: 21px;
+	display: block;
 	left: 30px;
 }
 
@@ -488,7 +493,7 @@ footer nav ul {
 	right: 30px;
 }
 
-.addPhoto__arrow,
+.addPhoto__arrow--active,
 .crossModal {
 	top: 26px;
 }
@@ -512,6 +517,11 @@ footer nav ul {
 }
 
 .addPhoto__title {
+	display: none;
+}
+
+.addPhoto__title--active {
+	display: block;
 	margin-bottom: 36px;
 }
 
@@ -542,10 +552,15 @@ footer nav ul {
 }
 
 .addPhoto {
+	display: none;
+}
+
+.addPhoto--active {
 	background: #E8F1F6;
 	height: auto;
 	max-height: 169px;
 	border-radius: 3px;
+	display: block;
 	padding-bottom: 0;
 	margin-bottom: 30px;
 }
@@ -553,18 +568,23 @@ footer nav ul {
 .modal,
 .crossModal,
 .galleryModal__trash,
-.addPhoto {
+.addPhoto--active {
 	align-items: center;
 }
 
-.modal,
 .addPhoto__form {
-	background: #fff;
+	display: none;
 }
 
 .modal,
-.addPhoto,
-.addPhoto__form {
+.addPhoto__form--active {
+	background: #fff;
+	display: block;
+}
+
+.modal,
+.addPhoto--active,
+.addPhoto__form--active {
 	flex-direction: column;
 }
 
@@ -649,7 +669,7 @@ footer nav ul {
 }
 
 .overlayModal__edit,
-.addPhoto__arrow,
+.addPhoto__arrow--active,
 .crossModal,
 .galleryModal__photo,
 .galleryModal__trash,
@@ -662,8 +682,12 @@ footer nav ul {
 	padding-top: 38px;
 }
 
+.addPhoto__validButton {
+	display: none;
+}
+
 .overlayModal__edit,
-.addPhoto__arrow,
+.addPhoto__arrow--active,
 .fa-arrow-left,
 .crossModal,
 .fa-xmark,
@@ -676,16 +700,25 @@ footer nav ul {
 .addPhoto__form label,
 .fa-chevron-down,
 .bottomModal,
-.modal__button {
+.galleryModal__button,
+.addPhoto__validButton--active {
 	background: none;
+}
+
+.galleryModal__submit {
+	cursor: pointer;
+}
+
+.addPhoto__validButton--active {
+	display: block;
 }
 
 .modal,
 .crossModal,
 .galleryModal__work,
 .galleryModal__trash,
-.addPhoto,
-.addPhoto__form,
+.addPhoto--active,
+.addPhoto__form--active,
 .bottomModal {
 	display: flex;
 }
@@ -696,8 +729,8 @@ footer nav ul {
 	justify-content: center;
 }
 
-.addPhoto,
-.addPhoto__form,
+.addPhoto--active,
+.addPhoto__form--active,
 .bottomModal {
 	width: 420px;
 }
@@ -710,7 +743,7 @@ footer nav ul {
 	border-radius: 60px;
 }
 
-.addPhoto__arrow,
+.addPhoto__arrow--active,
 .crossModal,
 .addPhoto__submit,
 #addPhoto__addTitle,
