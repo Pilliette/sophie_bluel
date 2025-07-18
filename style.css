@@ -479,6 +479,7 @@ footer nav ul {
 .addPhoto__arrow--active {
 	width: 21px;
 	height: 21px;
+	cursor: pointer;
 	display: block;
 	left: 30px;
 }
@@ -490,6 +491,7 @@ footer nav ul {
 .crossModal {
 	width: 24px;
 	height: 24px;
+	cursor: pointer;
 	right: 30px;
 }
 
@@ -525,7 +527,8 @@ footer nav ul {
 }
 
 .addPhoto__title--active {
-	display: block;
+	display: flex;
+	justify-content: center;
 	margin-bottom: 36px;
 }
 
@@ -568,15 +571,26 @@ footer nav ul {
 	height: auto;
 	max-height: 169px;
 	border-radius: 3px;
-	display: block;
+	display: flex;
+	justify-content: center;
 	padding-bottom: 0;
 	margin-bottom: 30px;
 }
 
+.addPhoto__blankBlock {
+	background: none;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.addPhoto__blankBlock--inactive {
+	display: none;
+}
+
 .modal,
 .crossModal,
-.galleryModal__trash,
-.addPhoto--active {
+.galleryModal__trash {
 	align-items: center;
 }
 
@@ -591,9 +605,15 @@ footer nav ul {
 }
 
 .modal,
-.addPhoto--active,
 .addPhoto__form--active {
 	flex-direction: column;
+}
+
+.addPhoto__form input {
+	font-size: 14px;
+	font-weight: 400;
+	font-family: 'Work Sans';
+	padding-left: 16px;
 }
 
 .fa-image {
@@ -601,6 +621,10 @@ footer nav ul {
 	font-size: 68.14px;
 	margin-top: 22.5px;
 	margin-bottom: 12.88px;
+}
+
+.fa-image--inactive {
+	display: none;
 }
 
 .addPhoto__submit {
@@ -624,7 +648,12 @@ footer nav ul {
 }
 
 .addPhoto__photo {
+	display: none;
+}
+
+.addPhoto__photo--active {
 	height: 169px;
+	display: block;
 }
 
 .addPhoto__form label {
@@ -730,7 +759,6 @@ footer nav ul {
 .crossModal,
 .galleryModal__work,
 .galleryModal__trash,
-.addPhoto--active,
 .addPhoto__form--active,
 .bottomModal {
 	display: flex;

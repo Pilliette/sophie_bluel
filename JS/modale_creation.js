@@ -64,27 +64,31 @@ function creerModale(galerie, overlayModal) {
         addPhoto.className = `addPhoto`
         modal.appendChild(addPhoto)
 
-            const faImage = document.createElement(`i`)
-            faImage.className = `fa-regular fa-image`
-            addPhoto.appendChild(faImage)
-            
-            const addPhotoButton = document.createElement(`div`)
-            addPhotoButton.className = `addPhoto__button`
-            addPhoto.appendChild(addPhotoButton)
+            const addPhotoBlankBlock = document.createElement(`div`)
+            addPhotoBlankBlock.className = `addPhoto__blankBlock`
+            addPhoto.appendChild(addPhotoBlankBlock)
 
-                const addPhotoSubmit = document.createElement(`input`)
-                addPhotoSubmit.className = `addPhoto__submit`
-                addPhotoSubmit.type = `submit`
-                addPhotoSubmit.value = `+ Ajouter photo`
-                addPhotoButton.appendChild(addPhotoSubmit)
-            
-            const addPhotoP = document.createElement(`p`)
-            addPhotoP.textContent = `jpg, png : 4mo max`
-            addPhoto.appendChild(addPhotoP)
+                const faImage = document.createElement(`i`)
+                faImage.className = `fa-regular fa-image`
+                addPhotoBlankBlock.appendChild(faImage)
+                
+                const addPhotoButton = document.createElement(`div`)
+                addPhotoButton.className = `addPhoto__button`
+                addPhotoBlankBlock.appendChild(addPhotoButton)
+
+                    const addPhotoSubmit = document.createElement(`input`)
+                    addPhotoSubmit.className = `addPhoto__submit`
+                    addPhotoSubmit.type = `submit`
+                    addPhotoSubmit.value = `+ Ajouter photo`
+                    addPhotoButton.appendChild(addPhotoSubmit)
+                
+                const addPhotoP = document.createElement(`p`)
+                addPhotoP.textContent = `jpg, png : 4mo max`
+                addPhotoBlankBlock.appendChild(addPhotoP)
             
             const addPhotoPhoto = document.createElement(`img`)
             addPhotoPhoto.className = `addPhoto__photo`
-            addPhotoPhoto.src = ``
+            addPhotoPhoto.src = `../assets/images/abajour-tahina.png` // <img> à dynamiser
             addPhotoPhoto.alt = ``
             addPhoto.appendChild(addPhotoPhoto)
         
