@@ -1,4 +1,4 @@
-// Import des fichiers galerie.js / filtres.js / modale.js complets
+// Import des fichiers JS
 import galerie from './JS/galerie.js'
 import filtres from './JS/filtres.js'
 import modaleCreation from './JS/modale_creation.js'
@@ -19,11 +19,12 @@ const overlayModal = document.querySelector(`.overlayModal`)
 // Appel de la fonction pour initialiser la modale
 if (document.querySelector(`.overlayModal`)) {
 
-    modaleAffichage.afficherModale(
+    modaleAffichage.afficherModale (
 
         modaleCreation.creerModale,
         galerie.allWorks,
         overlayModal,
+        modaleGestion.closeModal,
         modaleGestion.addWork,
         modaleGestion.validWork
         

@@ -1,7 +1,7 @@
 // Affichage de la modale
-function afficherModale(creerModale, allWorks, overlayModal, addWork, validWork) {
+function afficherModale(creerModale, allWorks, overlayModal, closeModal, addWork, validWork) {
 
-    // Sélection des classes pour l'affichage de la modale
+    // Sélection des éléments HTML
     const relativeBody = document.querySelector(`.relativeBody`)
     const editModeActive = document.querySelector(`.editMode__active`)
 
@@ -11,21 +11,20 @@ function afficherModale(creerModale, allWorks, overlayModal, addWork, validWork)
         event.preventDefault()
         
         relativeBody.classList.toggle(`relativeBody__edit`)
+        overlayModal.classList.toggle(`overlayModal__edit`)
 
         // Vérification d'une création unique de la modale
         const modalExiste = document.querySelector(`.modal`)
 
         if (!modalExiste) {
 
-            creerModale(allWorks, overlayModal)
-
-            addWork()
-
-            validWork()
+            // Appel des fonctions
+            creerModale(allWorks, overlayModal) // pour créer la modale
+            closeModal(overlayModal) // pour fermer la modale
+            addWork() // pour ajouter un projet
+            validWork() // pour valider l'ajout du projet
 
         }
-
-        overlayModal.classList.toggle(`overlayModal__edit`)
 
     })
 
