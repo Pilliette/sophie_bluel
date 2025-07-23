@@ -65,7 +65,8 @@ function addWork () {
         galleryModalTitle.classList.toggle(`galleryModal__title--inactive`)
         addPhotoTitle.classList.toggle(`addPhoto__title--active`)
         galleryModal.classList.toggle(`galleryModal--inactive`)
-        addPhotoForm.classList.toggle(`addPhoto__form--active`)
+        addPhotoForm.classList.remove(`addPhoto__form`)
+        addPhotoForm.classList.add(`addPhoto__form--active`)
         galleryModalButton.classList.toggle(`galleryModal__button--inactive`)
         addPhotoValidButton.classList.toggle(`addPhoto__validButton--active`)
 
