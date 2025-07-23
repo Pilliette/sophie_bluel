@@ -7,7 +7,6 @@ function selectionVariables () {
         galleryModalTitle : document.querySelector(`.galleryModal__title`),
         addPhotoTitle : document.querySelector(`.addPhoto__title`),
         galleryModal : document.querySelector(`.galleryModal`),
-        addPhoto : document.querySelector(`.addPhoto`),
         addPhotoForm : document.querySelector(`.addPhoto__form`),
         galleryModalButton : document.querySelector(`.galleryModal__button`),
         addPhotoValidButton : document.querySelector(`.addPhoto__validButton`)
@@ -50,17 +49,14 @@ function addWork () {
         galleryModalTitle,
         addPhotoTitle,
         galleryModal,
-        addPhoto,
         addPhotoForm,
         galleryModalButton,
         addPhotoValidButton
 
     } = selectionVariables()
 
-    const galleryModalSubmit = document.querySelector(`.galleryModal__submit`)
-
     // Écoute au clic de .galleryModal__submit
-    galleryModalSubmit.addEventListener(`click`, (event) => {
+    galleryModalButton.addEventListener(`click`, (event) => {
 
         event.preventDefault()
 
@@ -69,7 +65,6 @@ function addWork () {
         galleryModalTitle.classList.toggle(`galleryModal__title--inactive`)
         addPhotoTitle.classList.toggle(`addPhoto__title--active`)
         galleryModal.classList.toggle(`galleryModal--inactive`)
-        addPhoto.classList.toggle(`addPhoto--active`)
         addPhotoForm.classList.toggle(`addPhoto__form--active`)
         galleryModalButton.classList.toggle(`galleryModal__button--inactive`)
         addPhotoValidButton.classList.toggle(`addPhoto__validButton--active`)
@@ -88,7 +83,6 @@ function validWork () {
         galleryModalTitle,
         addPhotoTitle,
         galleryModal,
-        addPhoto,
         addPhotoForm,
         galleryModalButton,
         addPhotoValidButton
