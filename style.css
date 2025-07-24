@@ -736,7 +736,7 @@ footer nav ul {
 .crossModal,
 .addPhoto__button,
 .galleryModal__button,
-.addPhoto__validButton--active {
+.addPhoto__validButton--green {
 	cursor: pointer;
 }
 

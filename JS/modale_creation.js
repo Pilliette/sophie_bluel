@@ -88,6 +88,7 @@ function creerModale(galerie, overlayModal) {
                 addPhotoBlankBlock.appendChild(addPhotoAddFile)
                 
                 const addPhotoP = document.createElement(`p`)
+                addPhotoP.className = `addPhoto__fileTypes`
                 addPhotoP.textContent = `jpg, png : 4mo max`
                 addPhotoBlankBlock.appendChild(addPhotoP)
 

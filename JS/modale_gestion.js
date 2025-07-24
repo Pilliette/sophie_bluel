@@ -9,7 +9,8 @@ function selectionVariables () {
         galleryModal : document.querySelector(`.galleryModal`),
         addPhotoForm : document.querySelector(`.addPhoto__form`),
         galleryModalButton : document.querySelector(`.galleryModal__button`),
-        addPhotoValidButton : document.querySelector(`.addPhoto__validButton`)
+        addPhotoValidButton : document.querySelector(`.addPhoto__validButton`),
+        addPhotoValidButtonGreen : document.querySelector(`.addPhoto__validButton--green`)
 
     }
 
@@ -51,24 +52,32 @@ function addWork () {
         galleryModal,
         addPhotoForm,
         galleryModalButton,
-        addPhotoValidButton
+        addPhotoValidButton,
+        addPhotoValidButtonGreen
 
     } = selectionVariables()
 
-    // Écoute au clic de .galleryModal__submit
+    // Écoute au clic de .galleryModal__button
     galleryModalButton.addEventListener(`click`, (event) => {
 
         event.preventDefault()
 
         // Modification des classes pour l'affichage de la modale
-        addPhotoArrow.classList.toggle(`addPhoto__arrow--active`)
-        galleryModalTitle.classList.toggle(`galleryModal__title--inactive`)
-        addPhotoTitle.classList.toggle(`addPhoto__title--active`)
-        galleryModal.classList.toggle(`galleryModal--inactive`)
+        addPhotoArrow.classList.remove(`addPhoto__arrow`)
+        addPhotoArrow.classList.add(`addPhoto__arrow--active`)
+        galleryModalTitle.classList.remove(`galleryModal__title`)
+        galleryModalTitle.classList.add(`galleryModal__title--inactive`)
+        addPhotoTitle.classList.remove(`addPhoto__title`)
+        addPhotoTitle.classList.add(`addPhoto__title--active`)
+        galleryModal.classList.remove(`galleryModal`)
+        galleryModal.classList.add(`galleryModal--inactive`)
         addPhotoForm.classList.remove(`addPhoto__form`)
         addPhotoForm.classList.add(`addPhoto__form--active`)
-        galleryModalButton.classList.toggle(`galleryModal__button--inactive`)
-        addPhotoValidButton.classList.toggle(`addPhoto__validButton--active`)
+        galleryModalButton.classList.remove(`galleryModal__button`)
+        galleryModalButton.classList.add(`galleryModal__button--inactive`)
+        addPhotoValidButton.classList.remove(`addPhoto__validButton`)
+        addPhotoValidButton.classList.add(`addPhoto__validButton--active`)
+        addPhotoValidButtonGreen.classList.remove(`addPhoto__validButton--green`)
 
     })
 
@@ -86,13 +95,16 @@ function validWork () {
         galleryModal,
         addPhotoForm,
         galleryModalButton,
-        addPhotoValidButton
+        addPhotoValidButton,
+        addPhotoValidButtonGreen
 
     } = selectionVariables()
 
-    const addPhotoBlankBlock = document.querySelector(`.addPhoto__blankBlock`)
+    const faImage = document.querySelector(`.fa-image`)
+    const addPhotoButton = document.querySelector(`.addPhoto__button`)
+    const addPhotoFileTypes = document.querySelector(`.addPhoto__fileTypes`)
     const addPhotoPhoto = document.querySelector(`.addPhoto__photo`)
-    const addPhotoValidSubmitGrey = document.querySelector(`.addPhoto__validSubmit--grey`)
+    const addPhotoValidButtonGrey = document.querySelector(`.addPhoto__validButton--grey`)
 
     if (addPhotoValidButton) {
 
@@ -102,14 +114,20 @@ function validWork () {
             event.preventDefault()
 
             // Modification des classes pour réafficher la modale "Galerie photo"
-            addPhotoArrow.classList.toggle(`addPhoto__arrow--active`)
-            galleryModalTitle.classList.toggle(`galleryModal__title--inactive`)
-            addPhotoTitle.classList.toggle(`addPhoto__title--active`)
-            galleryModal.classList.toggle(`galleryModal--inactive`)
-            addPhoto.classList.toggle(`addPhoto--active`)
-            addPhotoForm.classList.toggle(`addPhoto__form--active`)
-            galleryModalButton.classList.toggle(`galleryModal__button--inactive`)
-            addPhotoValidButton.classList.toggle(`addPhoto__validButton--active`)
+            addPhotoArrow.classList.remove(`addPhoto__arrow--active`)
+            addPhotoArrow.classList.add(`addPhoto__arrow`)
+            galleryModalTitle.classList.remove(`galleryModal__title--inactive`)
+            galleryModalTitle.classList.add(`galleryModal__title`)
+            addPhotoTitle.classList.remove(`addPhoto__title--active`)
+            addPhotoTitle.classList.add(`addPhoto__title`)
+            galleryModal.classList.remove(`galleryModal--inactive`)
+            galleryModal.classList.add(`galleryModal`)
+            addPhotoForm.classList.remove(`addPhoto__form--active`)
+            addPhotoForm.classList.add(`addPhoto__form`)
+            galleryModalButton.classList.remove(`galleryModal__button--inactive`)
+            galleryModalButton.classList.add(`galleryModal__button`)
+            addPhotoValidButton.classList.remove(`addPhoto__validButton--active`)
+            addPhotoValidButton.classList.add(`addPhoto__validButton`)
         })
 
         // Écoute au clic de .addPhoto__validButton
@@ -118,9 +136,16 @@ function validWork () {
             event.preventDefault()
             
             // Modification des classes pour afficher la modale "Valider projet"
-            addPhotoBlankBlock.classList.toggle(`addPhoto__blankBlock--inactive`)
-            addPhotoPhoto.classList.toggle(`addPhoto__photo--active`)
-            addPhotoValidSubmitGrey.classList.remove(`addPhoto__validSubmit--grey`)
+            faImage.classList.remove(`fa-image`)
+            faImage.classList.add(`fa-image--inactive`)
+            addPhotoButton.classList.remove(`addPhoto__button`)
+            addPhotoButton.classList.add(`addPhoto__button--inactive`)
+            addPhotoFileTypes.classList.remove(`addPhoto__fileTypes`)
+            addPhotoFileTypes.classList.add(`addPhoto__fileTypes--inactive`)
+            addPhotoPhoto.classList.remove(`addPhoto__photo`)
+            addPhotoPhoto.classList.add(`addPhoto__photo--active`)
+            addPhotoValidButtonGrey.classList.remove(`addPhoto__validButton--grey`)
+            addPhotoValidButtonGreen.classList.add(`addPhoto__validButton--green`)
 
         })
 
