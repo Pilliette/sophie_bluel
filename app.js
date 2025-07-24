@@ -25,6 +25,7 @@ if (document.querySelector(`.overlayModal`)) {
         galerie.allWorks,
         overlayModal,
         modaleGestion.closeModal,
+        works => modaleGestion.deleteWork(works),
         modaleGestion.addWork,
         modaleGestion.validWork
         

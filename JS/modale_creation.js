@@ -52,6 +52,7 @@ function creerModale(galerie, overlayModal) {
 
                     const galleryModalTrash = document.createElement(`div`)
                     galleryModalTrash.className = `galleryModal__trash`
+                    galleryModalTrash.dataset.id = uniqueWork.id
                     galleryModalWork.appendChild(galleryModalTrash)
 
                         const faTrashCan = document.createElement(`i`)

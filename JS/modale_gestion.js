@@ -40,6 +40,41 @@ function closeModal (overlayModal) {
    
 }
 
+function deleteWork (allWorks) {
+
+    // Sélection des éléments HTML
+    const galleryModalTrashButtons = document.querySelectorAll(`.galleryModal__trash`)
+
+    // Écoute au clic des .galleryModal__trash
+    galleryModalTrashButtons.forEach(button => {
+
+        button.addEventListener(`click`, (event) => {
+
+            event.preventDefault()
+            
+            const workContainer = button.closest(`.galleryModal__work`)
+            const img = workContainer.querySelector(`img`)
+
+            // Conversion de l'id en entier
+            const workId = parseInt(img.dataset.id)
+            
+            // Suppression du uniqueWork du DOM
+            workContainer.remove
+
+            // Suppression du uniqueWork de allWorks
+            const index = allWorks.findIndex(work => work.id === workId)
+
+            if (index !== -1) {
+                allWorks.splice(index, 1)
+            }
+
+            console.log(`Projet ${workId} supprimé`);
+
+        })
+    })
+
+}
+
 // Affichage de la modale "Ajout projet"
 function addWork () {
 
@@ -156,6 +191,7 @@ function validWork () {
 export default {
     selectionVariables,
     closeModal,
+    deleteWork,
     addWork,
     validWork
 }
