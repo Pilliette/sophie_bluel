@@ -24,20 +24,43 @@ function closeModal (overlayModal) {
     const modal = document.querySelector(`.modal`)
     const relativeBody = document.querySelector(`.relativeBody`)
     
+    // Déclaration de la fonction pour supprimer la modale et les paramètres associés
+    function removeModal () {
 
-    // Écoute du clic de .crossModal
-    crossModal.addEventListener(`click`, (event) => {
-
-        event.preventDefault()
-
-        // Suppression de .modal
         modal.remove()
-
         overlayModal.classList.remove(`overlayModal__edit`)
         relativeBody.classList.remove(`relativeBody__edit`)
 
-    })
-   
+    }
+
+    // Écoute du clic de .crossModal
+    if (crossModal) {
+
+        crossModal.addEventListener(`click`, (event) => {
+
+            event.preventDefault()
+            removeModal()
+
+        })
+
+    }
+    
+    // Écoute du clic de .relativeBody
+    if (relativeBody) {
+
+        relativeBody.addEventListener(`click`, (event) => {
+
+            if (modal && !modal.contains(event.target)) {
+
+                event.preventDefault()
+                removeModal()
+
+            }
+
+        })
+
+    }
+    
 }
 
 function deleteWork (allWorks) {

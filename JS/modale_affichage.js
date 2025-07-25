@@ -20,10 +20,16 @@ function afficherModale(creerModale, allWorks, overlayModal, closeModal, deleteW
 
             // Appel des fonctions
             creerModale(allWorks, overlayModal) // pour créer la modale
-            closeModal(overlayModal) // pour fermer la modale
-            deleteWork(allWorks) // pour supprimer un projet
-            addWork() // pour ajouter un projet
-            validWork() // pour valider l'ajout du projet
+
+            // Attente de la mise à jour du DOM
+            setTimeout(() => {
+
+                closeModal(overlayModal) // pour fermer la modale
+                deleteWork(allWorks) // pour supprimer un projet
+                addWork() // pour ajouter un projet
+                validWork() // pour valider l'ajout du projet
+
+            }, 0)
 
         }
 
