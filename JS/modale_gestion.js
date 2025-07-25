@@ -82,7 +82,7 @@ function deleteWork (allWorks) {
             const workId = parseInt(img.dataset.id)
             
             // Suppression du uniqueWork du DOM
-            workContainer.remove
+            workContainer.remove()
 
             // Suppression du uniqueWork de allWorks
             const index = allWorks.findIndex(work => work.id === workId)
