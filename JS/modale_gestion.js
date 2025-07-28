@@ -7,6 +7,7 @@ function selectionVariables () {
         galleryModalTitle : document.querySelector(`.galleryModal__title`),
         addPhotoTitle : document.querySelector(`.addPhoto__title`),
         galleryModal : document.querySelector(`.galleryModal`),
+        crossModal : document.querySelector(`.crossModal`),
         addPhotoForm : document.querySelector(`.addPhoto__form`),
         galleryModalButton : document.querySelector(`.galleryModal__button`),
         addPhotoValidButton : document.querySelector(`.addPhoto__validButton`),
@@ -20,9 +21,9 @@ function selectionVariables () {
 function closeModal (overlayModal) {
 
     // Sélection des éléments HTML
-    const crossModal = document.querySelector(`.crossModal`)
-    const modal = document.querySelector(`.modal`)
     const relativeBody = document.querySelector(`.relativeBody`)
+    const modal = document.querySelector(`.modal`)
+    const {crossModal} = selectionVariables()
     
     // Déclaration de la fonction pour supprimer la modale et les paramètres associés
     function removeModal () {
@@ -32,44 +33,34 @@ function closeModal (overlayModal) {
         relativeBody.classList.remove(`relativeBody__edit`)
 
     }
+    
+    // Écoute du clic de .crossModal ou en dehors de .modal
 
-    // Écoute du clic de .crossModal
-    if (crossModal) {
+    relativeBody.addEventListener(`click`, (event) => {
+        
+        const clickOutsideModal = !modal.contains(event.target)
+        const clickOnCross = crossModal.contains(event.target)
 
-        crossModal.addEventListener(`click`, (event) => {
+        console.log(clickOnCross, clickOutsideModal);
 
+        if (clickOnCross || clickOutsideModal) {
+            
             event.preventDefault()
             removeModal()
 
-        })
+        }
 
-    }
-    
-    // Écoute du clic de .relativeBody
-    if (relativeBody) {
-
-        relativeBody.addEventListener(`click`, (event) => {
-
-            if (modal && !modal.contains(event.target)) {
-
-                event.preventDefault()
-                removeModal()
-
-            }
-
-        })
-
-    }
+    })
     
 }
 
 function deleteWork (allWorks) {
 
     // Sélection des éléments HTML
-    const galleryModalTrashButtons = document.querySelectorAll(`.galleryModal__trash`)
+    const galleryModalTrash = document.querySelectorAll(`.galleryModal__trash`)
 
     // Écoute au clic des .galleryModal__trash
-    galleryModalTrashButtons.forEach(button => {
+    galleryModalTrash.forEach(button => {
 
         button.addEventListener(`click`, (event) => {
 
@@ -92,6 +83,8 @@ function deleteWork (allWorks) {
             }
 
             console.log(`Projet ${workId} supprimé`);
+
+            event.stopPropagation()
 
         })
     })
