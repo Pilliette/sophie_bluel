@@ -516,6 +516,7 @@ footer nav ul {
 	height: 365.71px;
 	display: grid;
 	grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+	grid-template-rows: 1fr 1fr 1fr;
 	gap: 29px 9px;
 	margin-bottom: 67.3px;
 }

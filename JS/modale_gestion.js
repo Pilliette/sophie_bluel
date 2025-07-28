@@ -34,14 +34,11 @@ function closeModal (overlayModal) {
 
     }
     
-    // Écoute du clic de .crossModal ou en dehors de .modal
-
+    // Écoute du clic de .relativeBody + appel de la fonction de suppression de la modale
     relativeBody.addEventListener(`click`, (event) => {
         
         const clickOutsideModal = !modal.contains(event.target)
         const clickOnCross = crossModal.contains(event.target)
-
-        console.log(clickOnCross, clickOutsideModal);
 
         if (clickOnCross || clickOutsideModal) {
             
@@ -56,35 +53,37 @@ function closeModal (overlayModal) {
 
 function deleteWork (allWorks) {
 
-    // Sélection des éléments HTML
+    // Sélection de tous les éléments .galleryModal__trash
     const galleryModalTrash = document.querySelectorAll(`.galleryModal__trash`)
 
-    // Écoute au clic des .galleryModal__trash
+    // Écoute au clic pour chaque .galleryModal__trash
     galleryModalTrash.forEach(button => {
 
         button.addEventListener(`click`, (event) => {
 
             event.preventDefault()
+            event.stopPropagation()
             
-            const workContainer = button.closest(`.galleryModal__work`)
-            const img = workContainer.querySelector(`img`)
+            // Suppression du projet du DOM
 
-            // Conversion de l'id en entier
-            const workId = parseInt(img.dataset.id)
+            // Recherche du parent .galleryModal__work du clic
+            const workContainer = button.closest(`.galleryModal__work`)
             
             // Suppression du uniqueWork du DOM
             workContainer.remove()
 
-            // Suppression du uniqueWork de allWorks
+            // Suppression du projet du tableau allWorks
+
+            // Identification du projet via l'id + conversion de l'id en entier
+            const workId = parseInt(button.dataset.id)
+            
+            // Comparaison de l'id avec le tableau allWorks
             const index = allWorks.findIndex(work => work.id === workId)
 
+            // Suppression du projet
             if (index !== -1) {
                 allWorks.splice(index, 1)
             }
-
-            console.log(`Projet ${workId} supprimé`);
-
-            event.stopPropagation()
 
         })
     })
