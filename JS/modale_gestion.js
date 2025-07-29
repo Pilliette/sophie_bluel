@@ -22,32 +22,32 @@ function closeModal (overlayModal) {
 
     // Sélection des éléments HTML
     const relativeBody = document.querySelector(`.relativeBody`)
-    const modal = document.querySelector(`.modal`)
-    const {crossModal} = selectionVariables()
-    
-    // Déclaration de la fonction pour supprimer la modale et les paramètres associés
-    function removeModal () {
 
-        modal.remove()
-        overlayModal.classList.remove(`overlayModal__edit`)
-        relativeBody.classList.remove(`relativeBody__edit`)
-
-    }
-    
-    // Écoute du clic de .relativeBody + appel de la fonction de suppression de la modale
-    relativeBody.addEventListener(`click`, (event) => {
+    function closeClick(event) {
+        
+        const modal = document.querySelector(`.modal`)
+        const {crossModal} = selectionVariables()
+        
+        if (!modal || !crossModal) return
         
         const clickOutsideModal = !modal.contains(event.target)
         const clickOnCross = crossModal.contains(event.target)
-
+        
         if (clickOnCross || clickOutsideModal) {
             
             event.preventDefault()
-            removeModal()
+            
+            modal.remove()
+            overlayModal.classList.remove(`overlayModal__edit`)
+            relativeBody.classList.remove(`relativeBody__edit`)
+
+            relativeBody.removeEventListener(`click`, closeClick)
 
         }
 
-    })
+    }
+
+    relativeBody.addEventListener(`click`, closeClick)
     
 }
 

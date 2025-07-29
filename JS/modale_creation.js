@@ -106,9 +106,10 @@ function creerModale(galerie, overlayModal) {
             addPhotoForm.appendChild(addPhotoAddTitleLabel)
 
             const addPhotoAddTitleInput = document.createElement(`input`)
+            addPhotoAddTitleInput.className = `addPhoto__addTitle--input`
             addPhotoAddTitleInput.type = `text`
             addPhotoAddTitleInput.name = `addPhoto__addTitle`
-            addPhotoAddTitleInput.id = `addPhoto__addTitle--input`
+            addPhotoAddTitleInput.id = `addPhoto__addTitle`
             addPhotoForm.appendChild(addPhotoAddTitleInput)
             
             const addPhotoSelectCategoryLabel = document.createElement(`label`)
@@ -118,8 +119,9 @@ function creerModale(galerie, overlayModal) {
             addPhotoForm.appendChild(addPhotoSelectCategoryLabel)
 
             const addPhotoSelectCategoryInput = document.createElement(`select`)
+            addPhotoSelectCategoryInput.className = `addPhoto__selectCategory--input`
             addPhotoSelectCategoryInput.name = `addPhoto__selectCategory`
-            addPhotoSelectCategoryInput.id = `addPhoto__selectCategory--input`
+            addPhotoSelectCategoryInput.id = `addPhoto__selectCategory`
             addPhotoForm.appendChild(addPhotoSelectCategoryInput)
             
             const faChevronDown = document.createElement(`i`)

@@ -9,23 +9,24 @@ function afficherModale(creerModale, allWorks, overlayModal, closeModal, deleteW
     editModeActive.addEventListener(`click`, (event) => {
 
         event.preventDefault()
-        
+
         relativeBody.classList.add(`relativeBody__edit`)
         overlayModal.classList.add(`overlayModal__edit`)
 
-        // Vérification d'une création unique de la modale
-        const modalExiste = document.querySelector(`.modal`)
+        // Nettoyage de .modal
+        const existingModal = document.querySelector(`.modal`)
 
-        if (!modalExiste) {
-
-            // Appel des fonctions
-            creerModale(allWorks, overlayModal) // pour créer la modale
-
+        if (existingModal) {
+            existingModal.remove()
         }
+        
+        // Appel des fonctions pour créer la modale
+        creerModale(allWorks, overlayModal)
 
         // Attente de la mise à jour du DOM
         setTimeout(() => {
 
+            // Appel des fonctions
             closeModal(overlayModal) // pour fermer la modale
             deleteWork(allWorks) // pour supprimer un projet
             addWork() // pour ajouter un projet

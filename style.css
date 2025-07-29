@@ -598,7 +598,7 @@ footer nav ul {
 	height: 169px;
 }
 
-#addPhoto__addTitle--input {
+.addPhoto__addTitle--input {
 	margin-bottom: 21px;
 }
 
@@ -623,13 +623,13 @@ footer nav ul {
 	margin-bottom: 10px;
 }
 
-#addPhoto__selectCategory--input {
+.addPhoto__selectCategory--input {
 	appearance: none;
 	margin-bottom: 47px;
 }
 
-#addPhoto__addTitle--input,
-#addPhoto__selectCategory--input {
+.addPhoto__addTitle--input,
+.addPhoto__selectCategory--input {
 	height: 51px;
 	box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
 }
@@ -637,7 +637,7 @@ footer nav ul {
 .relativeBody,
 .modal,
 .galleryModal__work,
-#addPhoto__selectCategory--input {
+.addPhoto__selectCategory--input {
 	position: relative;
 }
 
@@ -767,8 +767,8 @@ footer nav ul {
 
 .addPhoto__arrow--active,
 .crossModal,
-#addPhoto__addTitle--input,
-#addPhoto__selectCategory--input,
+.addPhoto__addTitle--input,
+.addPhoto__selectCategory--input,
 .galleryModal__button,
 .addPhoto__validButton--active {
 	border: none;
