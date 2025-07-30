@@ -95,7 +95,7 @@ function creerModale(galerie, overlayModal) {
 
                 const addPhotoPhoto = document.createElement(`img`)
                 addPhotoPhoto.className = `addPhoto__photo`
-                addPhotoPhoto.src = `../assets/images/abajour-tahina.png` // <img> à dynamiser
+                addPhotoPhoto.src = ``
                 addPhotoPhoto.alt = ``
                 addPhotoBlankBlock.appendChild(addPhotoPhoto)
 

@@ -133,6 +133,31 @@ function addWork () {
 
 }
 
+function addFile () {
+
+    const addPhotoAddFile = document.getElementById(`addPhoto__addFile`)
+    const faImage = document.querySelector(`.fa-image`)
+    const addPhotoButton = document.querySelector(`.addPhoto__button`)
+    const addPhotoFileTypes = document.querySelector(`.addPhoto__fileTypes`)
+    const addPhotoPhoto = document.querySelector(`.addPhoto__photo`)
+
+    addPhotoAddFile.addEventListener(`change`, (event) => {
+
+        event.preventDefault()
+
+        faImage.classList.remove(`fa-image`)
+        faImage.classList.add(`fa-image--inactive`)
+        addPhotoButton.classList.remove(`addPhoto__button`)
+        addPhotoButton.classList.add(`addPhoto__button--inactive`)
+        addPhotoFileTypes.classList.remove(`addPhoto__fileTypes`)
+        addPhotoFileTypes.classList.add(`addPhoto__fileTypes--inactive`)
+        addPhotoPhoto.classList.remove(`addPhoto__photo`)
+        addPhotoPhoto.classList.add(`addPhoto__photo--active`)
+
+    })
+
+}
+
 // Affichage de la modale "Validation projet"
 function validWork () {
 
@@ -208,5 +233,6 @@ export default {
     closeModal,
     deleteWork,
     addWork,
+    addFile,
     validWork
 }

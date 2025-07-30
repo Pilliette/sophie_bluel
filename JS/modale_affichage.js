@@ -1,5 +1,5 @@
 // Affichage de la modale
-function afficherModale(creerModale, allWorks, overlayModal, closeModal, deleteWork, addWork, validWork) {
+function afficherModale(creerModale, allWorks, overlayModal, closeModal, deleteWork, addWork, addFile, validWork) {
 
     // Sélection des éléments HTML
     const relativeBody = document.querySelector(`.relativeBody`)
@@ -30,6 +30,7 @@ function afficherModale(creerModale, allWorks, overlayModal, closeModal, deleteW
             closeModal(overlayModal) // pour fermer la modale
             deleteWork(allWorks) // pour supprimer un projet
             addWork() // pour ajouter un projet
+            addFile() // pour ajouter une image
             validWork() // pour valider l'ajout du projet
 
         }, 0)

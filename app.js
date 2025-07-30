@@ -27,6 +27,7 @@ if (document.querySelector(`.overlayModal`)) {
         modaleGestion.closeModal,
         works => modaleGestion.deleteWork(works),
         modaleGestion.addWork,
+        modaleGestion.addFile,
         modaleGestion.validWork
         
     )
