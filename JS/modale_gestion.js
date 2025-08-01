@@ -17,6 +17,9 @@ function selectionVariables () {
 
 }
 
+// Vérification de réussite de suppression d'un projet
+let projectDeleted = false
+
 // Déclaration de la fonction pour fermer la modale
 function closeModal (overlayModal) {
 
@@ -35,13 +38,15 @@ function closeModal (overlayModal) {
         
         if (clickOnCross || clickOutsideModal) {
             
-            event.preventDefault()
-            
             modal.remove()
             overlayModal.classList.remove(`overlayModal__edit`)
             relativeBody.classList.remove(`relativeBody__edit`)
 
             relativeBody.removeEventListener(`click`, closeClick)
+
+            if (projectDeleted) {
+                location.reload()
+            }
 
         }
 
@@ -79,6 +84,9 @@ function deleteWork (allWorks) {
                     'Authorization': `Bearer ${token}`
                 }
             })
+
+            // Suppression réussie côté API
+            projectDeleted = true
             
             // Suppression du projet du DOM
 
