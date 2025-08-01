@@ -17,7 +17,7 @@ function selectionVariables () {
 
 }
 
-// Vérification de réussite de suppression d'un projet
+// Déclaration de la variable de suppression d'un projet
 let projectDeleted = false
 
 // Déclaration de la fonction pour fermer la modale

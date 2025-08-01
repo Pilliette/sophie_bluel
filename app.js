@@ -1,6 +1,7 @@
 // Import des fichiers JS
 import galerie from './JS/galerie.js'
 import filtres from './JS/filtres.js'
+import deconnexion from './JS/deconnexion.js'
 import modaleCreation from './JS/modale_creation.js'
 import modaleAffichage from './JS/modale_affichage.js'
 import modaleGestion from './JS/modale_gestion.js'
