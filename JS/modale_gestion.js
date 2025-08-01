@@ -51,6 +51,7 @@ function closeModal (overlayModal) {
     
 }
 
+// Déclaration de la fonction pour supprimer un projet
 function deleteWork (allWorks) {
 
     // Sélection de tous les éléments .galleryModal__trash
@@ -59,23 +60,35 @@ function deleteWork (allWorks) {
     // Écoute au clic pour chaque .galleryModal__trash
     galleryModalTrash.forEach(button => {
 
-        button.addEventListener(`click`, (event) => {
+        button.addEventListener(`click`, async (event) => {
 
             event.preventDefault()
             event.stopPropagation()
+            
+            // Identification du projet via l'id + conversion de l'id en entier
+            const workId = parseInt(button.dataset.id)
+
+            // Récupération du token d'authentification dans le localStorage
+            const token = localStorage.getItem(`token`)
+
+            // Envoi de la requête de suppression à l'API
+            const response = await fetch(`http://localhost:5678/api/works/${workId}`, { 
+
+                method: 'DELETE',
+                headers: {
+                    'Authorization': `Bearer ${token}`
+                }
+            })
             
             // Suppression du projet du DOM
 
             // Recherche du parent .galleryModal__work du clic
             const workContainer = button.closest(`.galleryModal__work`)
             
-            // Suppression du uniqueWork du DOM
-            workContainer.remove()
+            // Suppression du DOM
+            if (workContainer) workContainer.remove()
 
             // Suppression du projet du tableau allWorks
-
-            // Identification du projet via l'id + conversion de l'id en entier
-            const workId = parseInt(button.dataset.id)
             
             // Comparaison de l'id avec le tableau allWorks
             const index = allWorks.findIndex(work => work.id === workId)
