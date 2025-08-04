@@ -547,7 +547,8 @@ footer nav ul {
 }
 
 .modal__title,
-.addPhoto__form input {
+.addPhoto__form input,
+.addPhoto__selectCategory--input {
 	font-weight: 400;
 }
 
@@ -569,7 +570,6 @@ footer nav ul {
 }
 
 .addPhoto__fileTypes {
-	color: #444444;
 	font-size: 10px;
 	height: 12px;
 	margin-bottom: 19px;
@@ -610,7 +610,8 @@ footer nav ul {
 .addPhoto__form input,
 .addPhoto__button,
 .addPhoto__addTitle--label,
-.addPhoto__selectCategory--label {
+.addPhoto__selectCategory--label,
+.addPhoto__selectCategory--input {
 	font-family: 'Work Sans';
 }
 
@@ -629,7 +630,13 @@ footer nav ul {
 
 .addPhoto__selectCategory--input {
 	appearance: none;
+	padding-left: 16px;
 	margin-bottom: 47px;
+}
+
+.addPhoto__fileTypes,
+.addPhoto__selectCategory--input {
+	color: #444444;
 }
 
 .addPhoto__addTitle--input,
@@ -750,6 +757,7 @@ footer nav ul {
 .addPhoto__button,
 .addPhoto__addTitle--label,
 .addPhoto__selectCategory--label,
+.addPhoto__selectCategory--input,
 .galleryModal__button,
 .addPhoto__validButton--active {
 	font-size: 14px;

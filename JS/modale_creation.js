@@ -1,3 +1,5 @@
+import filtres from "./filtres.js"
+
 // Déclaration d'une fonction pour afficher la modale "Galerie photo"
 function creerModale(galerie, overlayModal) {
 
@@ -123,6 +125,21 @@ function creerModale(galerie, overlayModal) {
             addPhotoSelectCategoryInput.name = `addPhoto__selectCategory`
             addPhotoSelectCategoryInput.id = `addPhoto__selectCategory`
             addPhotoForm.appendChild(addPhotoSelectCategoryInput)
+
+                const defaultOption = document.createElement(`option`)
+                defaultOption.value = ``
+                defaultOption.disabled = true
+                defaultOption.selected = true
+                addPhotoSelectCategoryInput.appendChild(defaultOption)
+            
+                filtres.categories
+                    .filter(cat => cat.id !== -1)
+                    .forEach(cat => {
+                        const option = document.createElement(`option`)
+                        option.value = cat.id
+                        option.textContent = cat.name
+                        addPhotoSelectCategoryInput.appendChild(option)
+                    })
             
             const faChevronDown = document.createElement(`i`)
             faChevronDown.className = `fa-solid fa-chevron-down`
