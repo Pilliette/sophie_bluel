@@ -9,6 +9,7 @@ function selectionVariables () {
         galleryModal : document.querySelector(`.galleryModal`),
         crossModal : document.querySelector(`.crossModal`),
         addPhotoForm : document.querySelector(`.addPhoto__form`),
+        addPhotoAddFile : document.querySelector(`addPhoto__addFile`),
         galleryModalButton : document.querySelector(`.galleryModal__button`),
         addPhotoValidButton : document.querySelector(`.addPhoto__validButton`),
         addPhotoValidButtonGreen : document.querySelector(`.addPhoto__validButton--green`)
@@ -154,6 +155,7 @@ function addWork () {
 
 }
 
+// Sélection d'une image
 function addFile () {
 
     const addPhotoAddFile = document.getElementById(`addPhoto__addFile`)
@@ -165,6 +167,19 @@ function addFile () {
     addPhotoAddFile.addEventListener(`change`, (event) => {
 
         event.preventDefault()
+
+        // Récupération du fichier sélectionné
+        const imageFile = event.target.files[0]
+
+        if (imageFile) {
+
+            // Création d'une URL temporaire pour visualiser l'image sélectionnée
+            const imageURL = URL.createObjectURL(imageFile)
+
+            // Remplacement de l'aperçu par l'image sélectionnée
+            addPhotoPhoto.src = imageURL
+
+        }
 
         faImage.classList.remove(`fa-image`)
         faImage.classList.add(`fa-image--inactive`)
@@ -179,7 +194,7 @@ function addFile () {
 
 }
 
-// Affichage de la modale "Validation projet"
+// Validation du projet ajouté
 function validWork () {
 
     // Sélection des éléments HTML
@@ -198,8 +213,11 @@ function validWork () {
 
     const faImage = document.querySelector(`.fa-image`)
     const addPhotoButton = document.querySelector(`.addPhoto__button`)
+    const addPhotoAddFile = document.getElementById(`addPhoto__addFile`)
     const addPhotoFileTypes = document.querySelector(`.addPhoto__fileTypes`)
     const addPhotoPhoto = document.querySelector(`.addPhoto__photo`)
+    const addPhotoAddTitleInput = document.querySelector(`.addPhoto__addTitle--input`)
+    const addPhotoSelectCategoryInput = document.querySelector(`.addPhoto__selectCategory--input`)
     const addPhotoValidButtonGrey = document.querySelector(`.addPhoto__validButton--grey`)
 
     if (addPhotoValidButton) {
@@ -226,26 +244,28 @@ function validWork () {
             addPhotoValidButton.classList.add(`addPhoto__validButton`)
         })
 
-        // Écoute au clic de .addPhoto__validButton
-        addPhotoValidButton.addEventListener(`click`, (event) => {
+    }
 
-            event.preventDefault()
-            
-            // Modification des classes pour afficher la modale "Valider projet"
-            faImage.classList.remove(`fa-image`)
-            faImage.classList.add(`fa-image--inactive`)
-            addPhotoButton.classList.remove(`addPhoto__button`)
-            addPhotoButton.classList.add(`addPhoto__button--inactive`)
-            addPhotoFileTypes.classList.remove(`addPhoto__fileTypes`)
-            addPhotoFileTypes.classList.add(`addPhoto__fileTypes--inactive`)
-            addPhotoPhoto.classList.remove(`addPhoto__photo`)
-            addPhotoPhoto.classList.add(`addPhoto__photo--active`)
+    // Déclaration de la fonction de vérification des conditions d'ajout de projet
+    function checkConditions() {
+
+        const imageSelected = addPhotoAddFile.files.length > 0
+        const titleFilled = addPhotoAddTitleInput.value.trim() !== ``
+        const categorySelected = addPhotoSelectCategoryInput.value !== ``
+
+        if (imageSelected && titleFilled && categorySelected) {
+
             addPhotoValidButtonGrey.classList.remove(`addPhoto__validButton--grey`)
             addPhotoValidButtonGreen.classList.add(`addPhoto__validButton--green`)
 
-        })
+        }
 
     }
+
+    // Écoute sur les champs conditionnels image, titre et catégorie
+    addPhotoAddFile.addEventListener(`change`, checkConditions)
+    addPhotoAddTitleInput.addEventListener(`input`, checkConditions)
+    addPhotoSelectCategoryInput.addEventListener(`change`, checkConditions)
 
 }
 
