@@ -91,6 +91,7 @@ function deleteWork (allWorks) {
                 headers: {
                     'Authorization': `Bearer ${token}`
                 }
+                
             })
 
             // Suppression réussie côté API
@@ -335,6 +336,34 @@ function validWork () {
     addPhotoAddFile.addEventListener(`change`, checkConditions)
     addPhotoAddTitleInput.addEventListener(`input`, checkConditions)
     addPhotoSelectCategoryInput.addEventListener(`change`, checkConditions)
+
+    addPhotoValidButton.addEventListener(`click`, () => {
+
+        // Récupération du token d'authentification dans le localStorage
+        const token = localStorage.getItem(`token`)
+
+        // Récupération des champs
+        const image = addPhotoAddFile.files[0]
+        const title = addPhotoAddTitleInput.value.trim()
+        const category = addPhotoSelectCategoryInput.value
+
+        const formData = new FormData()
+        formData.append(`image`, image)
+        formData.append(`title`, title)
+        formData.append(`category`, category)
+
+        // Envoi de la requête d'ajout à l'API
+        const response = fetch(`http://localhost:5678/api/works`, {
+
+            method: 'POST',
+            headers: {
+                'Authorization': `Bearer ${token}`
+            },
+            body: formData
+
+        })
+
+    })
 
 }
 
