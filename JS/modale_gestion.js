@@ -9,9 +9,14 @@ function selectionVariables () {
         galleryModal : document.querySelector(`.galleryModal`),
         crossModal : document.querySelector(`.crossModal`),
         addPhotoForm : document.querySelector(`.addPhoto__form`),
-        addPhotoAddFile : document.querySelector(`addPhoto__addFile`),
+        faImage : document.querySelector(`.fa-image`),
+        addPhotoButton : document.querySelector(`.addPhoto__button`),
+        addPhotoAddFile : document.getElementById(`addPhoto__addFile`),
+        addPhotoFileTypes : document.querySelector(`.addPhoto__fileTypes`),
+        addPhotoPhoto : document.querySelector(`.addPhoto__photo`),
         galleryModalButton : document.querySelector(`.galleryModal__button`),
         addPhotoValidButton : document.querySelector(`.addPhoto__validButton`),
+        addPhotoValidButtonGrey : document.querySelector(`.addPhoto__validButton--grey`),
         addPhotoValidButtonGreen : document.querySelector(`.addPhoto__validButton--green`)
 
     }
@@ -39,6 +44,7 @@ function closeModal (overlayModal) {
         
         if (clickOnCross || clickOutsideModal) {
             
+            resetWork()
             modal.remove()
             overlayModal.classList.remove(`overlayModal__edit`)
             relativeBody.classList.remove(`relativeBody__edit`)
@@ -158,11 +164,16 @@ function addWork () {
 // Sélection d'une image
 function addFile () {
 
-    const addPhotoAddFile = document.getElementById(`addPhoto__addFile`)
-    const faImage = document.querySelector(`.fa-image`)
-    const addPhotoButton = document.querySelector(`.addPhoto__button`)
-    const addPhotoFileTypes = document.querySelector(`.addPhoto__fileTypes`)
-    const addPhotoPhoto = document.querySelector(`.addPhoto__photo`)
+    // Sélection des éléments HTML
+    const {
+        
+        faImage,
+        addPhotoButton,
+        addPhotoAddFile,
+        addPhotoFileTypes,
+        addPhotoPhoto
+    
+    } = selectionVariables()
 
     addPhotoAddFile.addEventListener(`change`, (event) => {
 
@@ -194,6 +205,34 @@ function addFile () {
 
 }
 
+// Reset de la modale d'ajout de projet en cas de fermeture ou de retour en arrière
+function resetWork() {
+
+    // Sélection des éléments HTML
+    const {
+
+        faImage,
+        addPhotoButton,
+        addPhotoFileTypes,
+        addPhotoPhoto,
+        addPhotoValidButtonGrey,
+        addPhotoValidButtonGreen
+
+    } = selectionVariables()
+
+    faImage.classList.remove(`fa-image--inactive`)
+    faImage.classList.add(`fa-image`)
+    addPhotoButton.classList.remove(`addPhoto__button--inactive`)
+    addPhotoButton.classList.add(`addPhoto__button`)
+    addPhotoFileTypes.classList.remove(`addPhoto__fileTypes--inactive`)
+    addPhotoFileTypes.classList.add(`addPhoto__fileTypes`)
+    addPhotoPhoto.classList.remove(`addPhoto__photo--active`)
+    addPhotoPhoto.classList.add(`addPhoto__photo`)
+    addPhotoValidButtonGreen.classList.remove(`addPhoto__validButton--green`)
+    addPhotoValidButtonGrey.classList.add(`addPhoto__validButton--grey`)
+    
+}
+
 // Validation du projet ajouté
 function validWork () {
 
@@ -205,20 +244,16 @@ function validWork () {
         addPhotoTitle,
         galleryModal,
         addPhotoForm,
+        addPhotoAddFile,
         galleryModalButton,
         addPhotoValidButton,
+        addPhotoValidButtonGrey,
         addPhotoValidButtonGreen
 
     } = selectionVariables()
 
-    const faImage = document.querySelector(`.fa-image`)
-    const addPhotoButton = document.querySelector(`.addPhoto__button`)
-    const addPhotoAddFile = document.getElementById(`addPhoto__addFile`)
-    const addPhotoFileTypes = document.querySelector(`.addPhoto__fileTypes`)
-    const addPhotoPhoto = document.querySelector(`.addPhoto__photo`)
     const addPhotoAddTitleInput = document.querySelector(`.addPhoto__addTitle--input`)
     const addPhotoSelectCategoryInput = document.querySelector(`.addPhoto__selectCategory--input`)
-    const addPhotoValidButtonGrey = document.querySelector(`.addPhoto__validButton--grey`)
 
     if (addPhotoValidButton) {
 
@@ -226,6 +261,8 @@ function validWork () {
         addPhotoArrow.addEventListener(`click`, (event) => {
 
             event.preventDefault()
+
+            resetWork()
 
             // Modification des classes pour réafficher la modale "Galerie photo"
             addPhotoArrow.classList.remove(`addPhoto__arrow--active`)
