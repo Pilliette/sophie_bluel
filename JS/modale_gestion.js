@@ -14,6 +14,8 @@ function selectionVariables () {
         addPhotoAddFile : document.getElementById(`addPhoto__addFile`),
         addPhotoFileTypes : document.querySelector(`.addPhoto__fileTypes`),
         addPhotoPhoto : document.querySelector(`.addPhoto__photo`),
+        addPhotoAddTitleInput : document.querySelector(`.addPhoto__addTitle--input`),
+        addPhotoSelectCategoryInput : document.querySelector(`.addPhoto__selectCategory--input`),
         galleryModalButton : document.querySelector(`.galleryModal__button`),
         addPhotoValidButton : document.querySelector(`.addPhoto__validButton`),
         addPhotoValidButtonGrey : document.querySelector(`.addPhoto__validButton--grey`),
@@ -43,8 +45,7 @@ function closeModal (overlayModal) {
         const clickOnCross = crossModal.contains(event.target)
         
         if (clickOnCross || clickOutsideModal) {
-            
-            resetWork()
+
             modal.remove()
             overlayModal.classList.remove(`overlayModal__edit`)
             relativeBody.classList.remove(`relativeBody__edit`)
@@ -205,31 +206,63 @@ function addFile () {
 
 }
 
-// Reset de la modale d'ajout de projet en cas de fermeture ou de retour en arrière
+// Reset des champs à l'affichage de la modale "Ajout projet"
 function resetWork() {
 
     // Sélection des éléments HTML
     const {
 
-        faImage,
-        addPhotoButton,
-        addPhotoFileTypes,
-        addPhotoPhoto,
+        addPhotoAddFile,
+        addPhotoAddTitleInput,
+        addPhotoSelectCategoryInput,
+        addPhotoValidButton,
         addPhotoValidButtonGrey,
         addPhotoValidButtonGreen
 
     } = selectionVariables()
 
-    faImage.classList.remove(`fa-image--inactive`)
-    faImage.classList.add(`fa-image`)
-    addPhotoButton.classList.remove(`addPhoto__button--inactive`)
-    addPhotoButton.classList.add(`addPhoto__button`)
-    addPhotoFileTypes.classList.remove(`addPhoto__fileTypes--inactive`)
-    addPhotoFileTypes.classList.add(`addPhoto__fileTypes`)
-    addPhotoPhoto.classList.remove(`addPhoto__photo--active`)
-    addPhotoPhoto.classList.add(`addPhoto__photo`)
-    addPhotoValidButtonGreen.classList.remove(`addPhoto__validButton--green`)
-    addPhotoValidButtonGrey.classList.add(`addPhoto__validButton--grey`)
+    const faImageInactive = document.querySelector(`.fa-image--inactive`)
+    const addPhotoButtonInactive = document.querySelector(`.addPhoto__button--inactive`)
+    const addPhotoFileTypesInactive = document.querySelector(`.addPhoto__fileTypes--inactive`)
+    const addPhotoPhotoActive = document.querySelector(`.addPhoto__photo--active`)
+
+    if (faImageInactive) {
+        faImageInactive.classList.remove(`fa-image--inactive`)
+        faImageInactive.classList.add(`fa-image`)
+    }
+
+    if (addPhotoButtonInactive) {
+        addPhotoButtonInactive.classList.remove(`addPhoto__button--inactive`)
+        addPhotoButtonInactive.classList.add(`addPhoto__button`)
+    }
+
+    if (addPhotoAddFile) {
+        addPhotoAddFile.value = ``
+    }
+
+    if (addPhotoFileTypesInactive) {
+        addPhotoFileTypesInactive.classList.remove(`addPhoto__fileTypes--inactive`)
+        addPhotoFileTypesInactive.classList.add(`addPhoto__fileTypes`)
+    }
+
+    if (addPhotoPhotoActive) {
+        addPhotoPhotoActive.classList.remove(`addPhoto__photo--active`)
+        addPhotoPhotoActive.classList.add(`addPhoto__photo`)
+        addPhotoPhotoActive.src = ``
+    }
+
+    if (addPhotoAddTitleInput) {
+        addPhotoAddTitleInput.value = ``
+    }
+
+    if (addPhotoSelectCategoryInput) {
+        addPhotoSelectCategoryInput.value = ``
+    }
+
+    if (addPhotoValidButton) {
+        addPhotoValidButtonGreen.classList.remove(`addPhoto__validButton--green`)
+        addPhotoValidButtonGrey.classList.add(`addPhoto__validButton--grey`)
+    }
     
 }
 
@@ -245,15 +278,14 @@ function validWork () {
         galleryModal,
         addPhotoForm,
         addPhotoAddFile,
+        addPhotoAddTitleInput,
+        addPhotoSelectCategoryInput,
         galleryModalButton,
         addPhotoValidButton,
         addPhotoValidButtonGrey,
         addPhotoValidButtonGreen
 
     } = selectionVariables()
-
-    const addPhotoAddTitleInput = document.querySelector(`.addPhoto__addTitle--input`)
-    const addPhotoSelectCategoryInput = document.querySelector(`.addPhoto__selectCategory--input`)
 
     if (addPhotoValidButton) {
 
@@ -312,5 +344,6 @@ export default {
     deleteWork,
     addWork,
     addFile,
+    resetWork,
     validWork
 }
