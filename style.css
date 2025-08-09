@@ -219,6 +219,7 @@ li a {
 
 .gallery img {
 	width: 100%;
+	max-height: 407px;
 
 }
 #contact,
@@ -527,6 +528,7 @@ footer nav ul {
 
 .galleryModal__photo {
 	width: 76.86px;
+	max-height: 102.57px;
 }
 
 .galleryModal__trash {
