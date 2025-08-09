@@ -1,13 +1,13 @@
+// Création du tableau de catégories
+const categories = [
+    { htmlId: `tous`, id: -1, name: `Tous`, checked: true, classLabel: `bouton` },
+    { htmlId: `objets`, id: 1, name: `Objets`, checked: false, classLabel: `bouton` },
+    { htmlId: `appartements`, id: 2, name: `Appartements`, checked: false, classLabel: `bouton bouton--appartements` },
+    { htmlId: `hotels_restaurants`, id: 3, name: `Hotels & restaurants`, checked: false, classLabel: `bouton bouton--hotels_restaurants` }
+]
+
 // Déclaration d'une fonction pour afficher les boutons filtrants
 function filtrer(allWorks, chargerGalerie) {
-
-    // Création du tableau de catégories
-    const categories = [
-        { htmlId: `tous`, id: -1, name: `Tous`, checked: true, classLabel: `bouton` },
-        { htmlId: `objets`, id: 1, name: `Objets`, checked: false, classLabel: `bouton` },
-        { htmlId: `appartements`, id: 2, name: `Appartements`, checked: false, classLabel: `bouton bouton--appartements` },
-        { htmlId: `hotels_restaurants`, id: 3, name: `Hotels & restaurants`, checked: false, classLabel: `bouton bouton--hotels_restaurants` }
-    ]
 
     // Création de l'élément HTML <form>
     const filtres = document.createElement(`form`)
@@ -62,5 +62,6 @@ function filtrer(allWorks, chargerGalerie) {
 
 // Export du fichier filtres.js complet
 export default {
+    categories,
     filtrer
 }
