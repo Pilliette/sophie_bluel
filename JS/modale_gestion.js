@@ -3,6 +3,7 @@ function selectionVariables () {
 
     return {
 
+        modal : document.querySelector(`.modal`),
         addPhotoArrow : document.querySelector(`.addPhoto__arrow`),
         galleryModalTitle : document.querySelector(`.galleryModal__title`),
         addPhotoTitle : document.querySelector(`.addPhoto__title`),
@@ -35,9 +36,11 @@ function closeModal (overlayModal) {
     const relativeBody = document.querySelector(`.relativeBody`)
 
     function closeClick(event) {
-        
-        const modal = document.querySelector(`.modal`)
-        const {crossModal} = selectionVariables()
+
+        const {
+            modal,
+            crossModal
+        } = selectionVariables()
         
         if (!modal || !crossModal) return
         
@@ -337,7 +340,7 @@ function validWork () {
     addPhotoAddTitleInput.addEventListener(`input`, checkConditions)
     addPhotoSelectCategoryInput.addEventListener(`change`, checkConditions)
 
-    addPhotoValidButton.addEventListener(`click`, () => {
+    addPhotoValidButton.addEventListener(`click`, async () => {
 
         // Récupération du token d'authentification dans le localStorage
         const token = localStorage.getItem(`token`)
@@ -352,8 +355,10 @@ function validWork () {
         formData.append(`title`, title)
         formData.append(`category`, category)
 
-        // Envoi de la requête d'ajout à l'API
-        const response = fetch(`http://localhost:5678/api/works`, {
+        try {
+
+            // Envoi de la requête d'ajout à l'API
+            const response = await fetch(`http://localhost:5678/api/works`, {
 
             method: 'POST',
             headers: {
@@ -361,7 +366,24 @@ function validWork () {
             },
             body: formData
 
-        })
+            })
+
+            if (!response.ok) {
+                
+                const errorRequest = await response.text()
+                console.error(`Erreur : `, errorRequest)
+
+            }
+
+            const {modal} = selectionVariables()
+
+            if (modal) modal.remove()
+
+            location.reload()
+
+        } catch (error) {
+            console.log(`Erreur : `, error);
+        }
 
     })
 
