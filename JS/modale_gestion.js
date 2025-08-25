@@ -29,6 +29,7 @@ function selectionVariables () {
 
 // Déclaration de la variable de suppression d'un projet
 let projectDeleted = false
+let projectAdded = true
 
 // Déclaration de la fonction pour fermer la modale
 function closeModal (overlayModal) {
@@ -40,15 +41,17 @@ function closeModal (overlayModal) {
 
         const {
             modal,
-            crossModal
+            crossModal,
+            addPhotoValidButtonGreen
         } = selectionVariables()
         
-        if (!modal || !crossModal) return
+        if (!modal || !crossModal || !addPhotoValidButtonGreen) return
         
         const clickOutsideModal = !modal.contains(event.target)
         const clickOnCross = crossModal.contains(event.target)
+        const clickOnValidButton = addPhotoValidButtonGreen.contains(event.target)
         
-        if (clickOnCross || clickOutsideModal) {
+        if (clickOnCross || clickOutsideModal || clickOnValidButton) {
 
             modal.remove()
             overlayModal.classList.remove(`overlayModal__edit`)
@@ -56,7 +59,7 @@ function closeModal (overlayModal) {
 
             relativeBody.removeEventListener(`click`, closeClick)
 
-            if (projectDeleted) {
+            if (projectDeleted || projectAdded) {
                 location.reload()
             }
 
@@ -347,7 +350,9 @@ function validWork () {
     addPhotoAddTitleInput.addEventListener(`input`, checkConditions)
     addPhotoSelectCategoryInput.addEventListener(`change`, checkConditions)
 
-    addPhotoValidButton.addEventListener(`click`, async () => {
+    addPhotoValidButton.addEventListener(`click`, async (event) => {
+
+        event.preventDefault()
 
         // Récupération du token d'authentification dans le localStorage
         const token = localStorage.getItem(`token`)
@@ -380,13 +385,7 @@ function validWork () {
 
         })
 
-        const {modal} = selectionVariables()
-
-        if (modal) {
-            modal.remove()
-        }
-
-        location.reload()
+        projectAdded = true
 
     })
 
