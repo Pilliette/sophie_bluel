@@ -113,6 +113,11 @@ function creerModale(galerie, overlayModal) {
             addPhotoAddTitleInput.name = `addPhoto__addTitle`
             addPhotoAddTitleInput.id = `addPhoto__addTitle`
             addPhotoForm.appendChild(addPhotoAddTitleInput)
+
+            const addPhotoAddTitleError = document.createElement(`p`)
+            addPhotoAddTitleError.className = `addPhoto__addTitle--error`
+            addPhotoAddTitleError.textContent = `Titre obligatoire`
+            addPhotoForm.appendChild(addPhotoAddTitleError)
             
             const addPhotoSelectCategoryLabel = document.createElement(`label`)
             addPhotoSelectCategoryLabel.className = `addPhoto__selectCategory--label`

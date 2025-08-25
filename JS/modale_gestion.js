@@ -16,6 +16,7 @@ function selectionVariables () {
         addPhotoFileTypes : document.querySelector(`.addPhoto__fileTypes`),
         addPhotoPhoto : document.querySelector(`.addPhoto__photo`),
         addPhotoAddTitleInput : document.querySelector(`.addPhoto__addTitle--input`),
+        addPhotoAddTitleError : document.querySelector(`.addPhoto__addTitle--error`),
         addPhotoSelectCategoryInput : document.querySelector(`.addPhoto__selectCategory--input`),
         galleryModalButton : document.querySelector(`.galleryModal__button`),
         addPhotoValidButton : document.querySelector(`.addPhoto__validButton`),
@@ -218,6 +219,7 @@ function resetWork() {
 
         addPhotoAddFile,
         addPhotoAddTitleInput,
+        addPhotoAddTitleError,
         addPhotoSelectCategoryInput,
         addPhotoValidButton,
         addPhotoValidButtonGrey,
@@ -259,6 +261,10 @@ function resetWork() {
         addPhotoAddTitleInput.value = ``
     }
 
+    if (addPhotoAddTitleError) {
+        addPhotoAddTitleError.style.display = `none`
+    }
+
     if (addPhotoSelectCategoryInput) {
         addPhotoSelectCategoryInput.value = ``
     }
@@ -283,6 +289,7 @@ function validWork () {
         addPhotoForm,
         addPhotoAddFile,
         addPhotoAddTitleInput,
+        addPhotoAddTitleError,
         addPhotoSelectCategoryInput,
         galleryModalButton,
         addPhotoValidButton,
@@ -349,6 +356,13 @@ function validWork () {
         const image = addPhotoAddFile.files[0]
         const title = addPhotoAddTitleInput.value.trim()
         const category = addPhotoSelectCategoryInput.value
+
+        if(title === "") {
+
+            addPhotoAddTitleError.style.display = `block`
+            return
+
+        }
 
         const formData = new FormData()
         formData.append(`image`, image)

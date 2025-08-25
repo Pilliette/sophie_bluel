@@ -812,4 +812,13 @@ footer nav ul {
 	background: #1D6154;
 }
 
+.addPhoto__addTitle--error {
+	color: #ff0000;
+	font-family: 'Work Sans';
+	font-size: 14px;
+	font-weight: 500;
+	display: none;
+	margin-bottom: 40px;
+}
+
 /************************************************** FIN MODALE **************************************************/
