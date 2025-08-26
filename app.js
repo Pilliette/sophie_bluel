@@ -6,47 +6,65 @@ import modaleCreation from './JS/modale_creation.js'
 import modaleAffichage from './JS/modale_affichage.js'
 import modaleGestion from './JS/modale_gestion.js'
 
-// Appel de la fonction pour charger la galerie
-galerie.chargerGalerie(galerie.allWorks)
+// Déclaration d'une variable d'évènements (Suppression ou ajout de projet)
+const events = {
 
-// Appel de la fonction pour afficher les filtres
-if (document.querySelector(`.blocForm`)) {
-    filtres.filtrer(galerie.allWorks, galerie.chargerGalerie)
-}
-
-// Sélection de la section .overlayModal
-const overlayModal = document.querySelector(`.overlayModal`)
-
-// Appel de la fonction pour initialiser la modale
-if (document.querySelector(`.overlayModal`)) {
-
-    modaleAffichage.afficherModale (
-
-        modaleCreation.creerModale,
-        galerie.allWorks,
-        overlayModal,
-        modaleGestion.closeModal,
-        works => modaleGestion.deleteWork(works),
-        modaleGestion.addWork,
-        modaleGestion.addFile,
-        modaleGestion.validWork
-        
-    )
+    added: `work:added`,
+    deleted: `work:deleted`
 
 }
 
-document.addEventListener(`work:added`, (event) => {
+// Déclaration d'une fonction pour affichage de la galerie avec des données à jour
+function render() {
+    return galerie.chargerGalerie(galerie.allWorks)
+}
 
-    const newWork = event.detail.work
+// Déclaration d'une fonction d'initialisation
+function init() {
 
-    galerie.allWorks.push(newWork)
-
+    // Affichage de la galerie avec des données à jour
     galerie.chargerGalerie(galerie.allWorks)
 
-})
+    // Affichage des filtres
+    const blocForm = document.querySelector(`.blocForm`)
 
-document.addEventListener(`work:deleted`, () => {
+    if (blocForm) {
+        filtres.filtrer(galerie.allWorks, galerie.chargerGalerie)
+    }
 
-    galerie.chargerGalerie(galerie.allWorks)
+    // Initialisation de la modale
+    const overlayModal = document.querySelector(`.overlayModal`)
 
-})
+    if (overlayModal) {
+
+        modaleAffichage.afficherModale (
+
+            modaleCreation.creerModale,
+            galerie.allWorks,
+            overlayModal,
+            modaleGestion.closeModal,
+            works => modaleGestion.deleteWork(works),
+            modaleGestion.addWork,
+            modaleGestion.addFile,
+            modaleGestion.validWork
+            
+        )
+
+    }
+
+    // Réaction aux évènements
+    document.addEventListener(events.added, (event) => {
+
+        const newWork = event.detail?.work
+        galerie.allWorks.push(newWork)
+        render()
+
+    })
+
+    document.addEventListener(events.deleted, () => {
+        render()
+    })
+
+}
+
+init()
