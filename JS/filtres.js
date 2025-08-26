@@ -45,10 +45,13 @@ function filtrer(allWorks, chargerGalerie) {
 
     })
 
+    // Écoute du clic sur les boutons filtrants
     filtres.addEventListener(`click`, (event) => {
 
+        // Conversion en entier de la valeur de categoryId
         const categoryId = parseInt(event.target.dataset.categoryId)
 
+        // Filtre les projets par catégorie
         if (categoryId > 0) {
             const worksFiltres = allWorks.filter(uniqueWork => uniqueWork.categoryId === categoryId)
 
