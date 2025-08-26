@@ -46,8 +46,6 @@ function closeModal (overlayModal) {
             crossModal,
             addPhotoValidButtonGreen
         } = selectionVariables()
-
-        event.preventDefault()
         
         if (!modal || !crossModal || !addPhotoValidButtonGreen) return
         
@@ -56,6 +54,8 @@ function closeModal (overlayModal) {
         const clickOnGreenButton = addPhotoValidButtonGreen.contains(event.target)
         
         if (clickOnCross || clickOutsideModal || clickOnGreenButton) {
+            
+            event.preventDefault()
 
             modal.remove()
             overlayModal.classList.remove(`overlayModal__edit`)
