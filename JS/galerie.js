@@ -37,7 +37,6 @@ async function chargerGalerie(galerie) {
 
 // Export du fichier galerie.js complet
 export default {
-    API_URL,
     allWorks,
     chargerGalerie
 }

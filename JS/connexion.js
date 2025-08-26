@@ -1,3 +1,6 @@
+// Déclaration d'une variable de l'URL de l'API
+const API_URL = `http://localhost:5678/api/users/login`
+
 // Sélection du form .loginBloc
 const loginBloc = document.querySelector(`.loginBloc`)
 
@@ -15,7 +18,7 @@ loginBloc.addEventListener(`submit`, async (event) => {
     try {
 
         // Envoi de la requête d'authentification à l'API
-        const reponse = await fetch(`http://localhost:5678/api/users/login`, {
+        const reponse = await fetch(API_URL, {
 
             method: `post`,
             headers: { 'Content-Type': 'application/json' },
@@ -36,11 +39,12 @@ loginBloc.addEventListener(`submit`, async (event) => {
         // Stockage du token d'authentification dans le localStorage
         localStorage.setItem(`token`, data.token)
 
-        // Redirection vers la page d'accueil (mode éditeur)
+        // Redirection vers la page d'accueil en mode éditeur
         window.location.href = `../pages/edit_mode.html`
 
     // Interception de l'erreur + modification du style de .errorMessage pour affiche du message d'erreur
     } catch (error) {
         document.querySelector(`.errorMessage`).style.display = `block`
     }
+    
 })
