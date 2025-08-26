@@ -404,7 +404,13 @@ function validWork () {
             })
         )
 
-        closeModal(document.querySelector(`.overlayModal`))
+        const overlayModal = document.querySelector(`.overlayModal`)
+        const relativeBody = document.querySelector(`.relativeBody`)
+        const {modal} = selectionVariables()
+
+        modal?.remove()
+        overlayModal?.classList.remove(`overlayModal__edit`)
+        relativeBody?.classList.remove(`relativeBody__edit`)
 
     })
 
