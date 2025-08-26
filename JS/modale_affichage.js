@@ -8,8 +8,10 @@ function afficherModale(creerModale, allWorks, overlayModal, closeModal, deleteW
     // Écoute du clic de .editMode__active
     editModeActive.addEventListener(`click`, (event) => {
 
+        // Empêchement du rechargement de la page
         event.preventDefault()
 
+        // Ajout des classes pour afficher la modale
         relativeBody.classList.add(`relativeBody__edit`)
         overlayModal.classList.add(`overlayModal__edit`)
 
