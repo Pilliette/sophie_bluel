@@ -122,10 +122,7 @@ function deleteWork (allWorks) {
                 allWorks.splice(index, 1)
             }
 
-            // Sélection des éléments HTML
-            const {modal} = selectionVariables()
-
-            modal?.dispatchEvent(
+            document.dispatchEvent(
                 new CustomEvent(`work:deleted`, {bubbles: true})
             )
 
@@ -398,8 +395,13 @@ function validWork () {
 
         const refs = selectionVariables()
 
-        refs.modal?.dispatchEvent(
-            new CustomEvent(`work:added`, {bubbles: true, detail: {work: newWork}})
+        document.dispatchEvent(
+            new CustomEvent(`work:added`, {
+
+                bubbles: true,
+                detail: {work: newWork}
+
+            })
         )
 
         closeModal(document.querySelector(`.overlayModal`))

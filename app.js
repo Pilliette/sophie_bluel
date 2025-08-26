@@ -35,7 +35,7 @@ if (document.querySelector(`.overlayModal`)) {
 
 }
 
-overlayModal.addEventListener(`work:added`, (event) => {
+document.addEventListener(`work:added`, (event) => {
 
     const newWork = event.detail.work
 
@@ -45,7 +45,7 @@ overlayModal.addEventListener(`work:added`, (event) => {
 
 })
 
-overlayModal.addEventListener(`work:deleted`, (event) => {
+document.addEventListener(`work:deleted`, () => {
 
     galerie.chargerGalerie(galerie.allWorks)
 
