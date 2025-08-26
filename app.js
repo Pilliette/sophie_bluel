@@ -67,4 +67,5 @@ function init() {
 
 }
 
+// Appel de la fonction pour initialiser
 init()

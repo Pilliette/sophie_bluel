@@ -1,14 +1,20 @@
+// Déclaration d'une variable de l'URL de l'API
+const API_URL = `http://localhost:5678/api/works`
+
 // Récupération des projets depuis l'API
-const reponse = await fetch(`http://localhost:5678/api/works`)
+const reponse = await fetch(API_URL)
 const allWorks = await reponse.json()
 
 // Déclaration d'une fonction pour charger la galerie
 async function chargerGalerie(galerie) {
 
-    // Récupération du parent des <figure>
+    // Récupération du conteneur des projets
     const parentProjet = document.querySelector(`.gallery`)
+
+    // Vide du conteneur
     parentProjet.innerHTML = ``
 
+    // Création d'un projet
     galerie.forEach(uniqueWork => {
 
         // Création des éléments HTML
@@ -31,6 +37,7 @@ async function chargerGalerie(galerie) {
 
 // Export du fichier galerie.js complet
 export default {
+    API_URL,
     allWorks,
     chargerGalerie
 }
