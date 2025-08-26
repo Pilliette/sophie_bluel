@@ -1,27 +1,29 @@
 // Sélection des éléments HTML communs aux fonctions
-function selectionVariables () {
+function selectionVariables (modalRoot = document.querySelector(`.modal`)) {
+
+    if (!modalRoot) return {}
 
     return {
 
-        modal : document.querySelector(`.modal`),
-        addPhotoArrow : document.querySelector(`.addPhoto__arrow`),
-        galleryModalTitle : document.querySelector(`.galleryModal__title`),
-        addPhotoTitle : document.querySelector(`.addPhoto__title`),
-        galleryModal : document.querySelector(`.galleryModal`),
-        crossModal : document.querySelector(`.crossModal`),
-        addPhotoForm : document.querySelector(`.addPhoto__form`),
-        faImage : document.querySelector(`.fa-image`),
-        addPhotoButton : document.querySelector(`.addPhoto__button`),
+        modal : modalRoot,
+        addPhotoArrow : modalRoot.querySelector(`.addPhoto__arrow`),
+        galleryModalTitle : modalRoot.querySelector(`.galleryModal__title`),
+        addPhotoTitle : modalRoot.querySelector(`.addPhoto__title`),
+        galleryModal : modalRoot.querySelector(`.galleryModal`),
+        crossModal : modalRoot.querySelector(`.crossModal`),
+        addPhotoForm : modalRoot.querySelector(`.addPhoto__form`),
+        faImage : modalRoot.querySelector(`.fa-image`),
+        addPhotoButton : modalRoot.querySelector(`.addPhoto__button`),
         addPhotoAddFile : document.getElementById(`addPhoto__addFile`),
-        addPhotoFileTypes : document.querySelector(`.addPhoto__fileTypes`),
-        addPhotoPhoto : document.querySelector(`.addPhoto__photo`),
-        addPhotoAddTitleInput : document.querySelector(`.addPhoto__addTitle--input`),
-        addPhotoAddTitleError : document.querySelector(`.addPhoto__addTitle--error`),
-        addPhotoSelectCategoryInput : document.querySelector(`.addPhoto__selectCategory--input`),
-        galleryModalButton : document.querySelector(`.galleryModal__button`),
-        addPhotoValidButton : document.querySelector(`.addPhoto__validButton`),
-        addPhotoValidButtonGrey : document.querySelector(`.addPhoto__validButton--grey`),
-        addPhotoValidButtonGreen : document.querySelector(`.addPhoto__validButton--green`)
+        addPhotoFileTypes : modalRoot.querySelector(`.addPhoto__fileTypes`),
+        addPhotoPhoto : modalRoot.querySelector(`.addPhoto__photo`),
+        addPhotoAddTitleInput : modalRoot.querySelector(`.addPhoto__addTitle--input`),
+        addPhotoAddTitleError : modalRoot.querySelector(`.addPhoto__addTitle--error`),
+        addPhotoSelectCategoryInput : modalRoot.querySelector(`.addPhoto__selectCategory--input`),
+        galleryModalButton : modalRoot.querySelector(`.galleryModal__button`),
+        addPhotoValidButton : modalRoot.querySelector(`.addPhoto__validButton`),
+        addPhotoValidButtonGrey : modalRoot.querySelector(`.addPhoto__validButton--grey`),
+        addPhotoValidButtonGreen : modalRoot.querySelector(`.addPhoto__validButton--green`)
 
     }
 
@@ -29,7 +31,7 @@ function selectionVariables () {
 
 // Déclaration de la variable de suppression d'un projet
 let projectDeleted = false
-let projectAdded = true
+let projectAdded = false
 
 // Déclaration de la fonction pour fermer la modale
 function closeModal (overlayModal) {
@@ -44,24 +46,22 @@ function closeModal (overlayModal) {
             crossModal,
             addPhotoValidButtonGreen
         } = selectionVariables()
+
+        event.preventDefault()
         
         if (!modal || !crossModal || !addPhotoValidButtonGreen) return
         
         const clickOutsideModal = !modal.contains(event.target)
         const clickOnCross = crossModal.contains(event.target)
-        const clickOnValidButton = addPhotoValidButtonGreen.contains(event.target)
+        const clickOnGreenButton = addPhotoValidButtonGreen.contains(event.target)
         
-        if (clickOnCross || clickOutsideModal || clickOnValidButton) {
+        if (clickOnCross || clickOutsideModal || clickOnGreenButton) {
 
             modal.remove()
             overlayModal.classList.remove(`overlayModal__edit`)
             relativeBody.classList.remove(`relativeBody__edit`)
 
             relativeBody.removeEventListener(`click`, closeClick)
-
-            if (projectDeleted || projectAdded) {
-                location.reload()
-            }
 
         }
 
@@ -121,6 +121,13 @@ function deleteWork (allWorks) {
             if (index !== -1) {
                 allWorks.splice(index, 1)
             }
+
+            // Sélection des éléments HTML
+            const {modal} = selectionVariables()
+
+            modal?.dispatchEvent(
+                new CustomEvent(`work:deleted`, {bubbles: true})
+            )
 
         })
     })
@@ -385,7 +392,17 @@ function validWork () {
 
         })
 
+        const newWork = await response.json()
+
         projectAdded = true
+
+        const refs = selectionVariables()
+
+        refs.modal?.dispatchEvent(
+            new CustomEvent(`work:added`, {bubbles: true, detail: {work: newWork}})
+        )
+
+        closeModal(document.querySelector(`.overlayModal`))
 
     })
 

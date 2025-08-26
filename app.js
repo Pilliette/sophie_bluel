@@ -34,3 +34,19 @@ if (document.querySelector(`.overlayModal`)) {
     )
 
 }
+
+overlayModal.addEventListener(`work:added`, (event) => {
+
+    const newWork = event.detail.work
+
+    galerie.allWorks.push(newWork)
+
+    galerie.chargerGalerie(galerie.allWorks)
+
+})
+
+overlayModal.addEventListener(`work:deleted`, (event) => {
+
+    galerie.chargerGalerie(galerie.allWorks)
+
+})
