@@ -6,24 +6,40 @@ function selectionVariables (modalRoot = document.querySelector(`.modal`)) {
     return {
 
         modal : modalRoot,
-        addPhotoArrow : modalRoot.querySelector(`.addPhoto__arrow`),
-        galleryModalTitle : modalRoot.querySelector(`.galleryModal__title`),
-        addPhotoTitle : modalRoot.querySelector(`.addPhoto__title`),
-        galleryModal : modalRoot.querySelector(`.galleryModal`),
         crossModal : modalRoot.querySelector(`.crossModal`),
+
+        galleryModalTitle : modalRoot.querySelector(`.galleryModal__title`),
+        galleryModal : modalRoot.querySelector(`.galleryModal`),
+        galleryModalButton : modalRoot.querySelector(`.galleryModal__button`),
+
+        addPhotoArrow : modalRoot.querySelector(`.addPhoto__arrow`),
+        addPhotoTitle : modalRoot.querySelector(`.addPhoto__title`),
+
         addPhotoForm : modalRoot.querySelector(`.addPhoto__form`),
         faImage : modalRoot.querySelector(`.fa-image`),
         addPhotoButton : modalRoot.querySelector(`.addPhoto__button`),
-        addPhotoAddFile : document.getElementById(`addPhoto__addFile`),
+        addPhotoAddFile : modalRoot.querySelector(`#addPhoto__addFile`),
         addPhotoFileTypes : modalRoot.querySelector(`.addPhoto__fileTypes`),
         addPhotoPhoto : modalRoot.querySelector(`.addPhoto__photo`),
+
         addPhotoAddTitleInput : modalRoot.querySelector(`.addPhoto__addTitle--input`),
         addPhotoAddTitleError : modalRoot.querySelector(`.addPhoto__addTitle--error`),
         addPhotoSelectCategoryInput : modalRoot.querySelector(`.addPhoto__selectCategory--input`),
-        galleryModalButton : modalRoot.querySelector(`.galleryModal__button`),
         addPhotoValidButton : modalRoot.querySelector(`.addPhoto__validButton`),
         addPhotoValidButtonGrey : modalRoot.querySelector(`.addPhoto__validButton--grey`),
         addPhotoValidButtonGreen : modalRoot.querySelector(`.addPhoto__validButton--green`)
+
+    }
+
+}
+
+// Déclaration de la variable pour supprimer ou ajouter des classes
+const changeClass = (elt, removeClass, addClass) => {
+
+    if (elt) {
+
+        elt.classList.remove(removeClass)
+        elt.classList.add(addClass)
 
     }
 
@@ -42,9 +58,11 @@ function closeModal (overlayModal) {
     function closeClick(event) {
 
         const {
+
             modal,
             crossModal,
             addPhotoValidButtonGreen
+
         } = selectionVariables()
         
         if (!modal || !crossModal || !addPhotoValidButtonGreen) return
@@ -137,12 +155,15 @@ function addWork () {
     // Sélection des éléments HTML
     const {
 
-        addPhotoArrow,
         galleryModalTitle,
-        addPhotoTitle,
         galleryModal,
-        addPhotoForm,
         galleryModalButton,
+
+        addPhotoArrow,
+        addPhotoTitle,
+        
+        addPhotoForm,
+
         addPhotoValidButton,
         addPhotoValidButtonGreen
 
@@ -154,20 +175,16 @@ function addWork () {
         event.preventDefault()
 
         // Modification des classes pour l'affichage de la modale
-        addPhotoArrow.classList.remove(`addPhoto__arrow`)
-        addPhotoArrow.classList.add(`addPhoto__arrow--active`)
-        galleryModalTitle.classList.remove(`galleryModal__title`)
-        galleryModalTitle.classList.add(`galleryModal__title--inactive`)
-        addPhotoTitle.classList.remove(`addPhoto__title`)
-        addPhotoTitle.classList.add(`addPhoto__title--active`)
-        galleryModal.classList.remove(`galleryModal`)
-        galleryModal.classList.add(`galleryModal--inactive`)
-        addPhotoForm.classList.remove(`addPhoto__form`)
-        addPhotoForm.classList.add(`addPhoto__form--active`)
-        galleryModalButton.classList.remove(`galleryModal__button`)
-        galleryModalButton.classList.add(`galleryModal__button--inactive`)
-        addPhotoValidButton.classList.remove(`addPhoto__validButton`)
-        addPhotoValidButton.classList.add(`addPhoto__validButton--active`)
+        changeClass(galleryModalTitle, `galleryModal__title`, `galleryModal__title--inactive`)
+        changeClass(galleryModal, `galleryModal`, `galleryModal--inactive`)
+        changeClass(galleryModalButton, `galleryModal__button`, `galleryModal__button--inactive`)
+
+        changeClass(addPhotoArrow, `addPhoto__arrow`, `addPhoto__arrow--active`)
+        changeClass(addPhotoTitle, `addPhoto__title`, `addPhoto__title--active`)
+        
+        changeClass(addPhotoForm, `addPhoto__form`, `addPhoto__form--active`)
+
+        changeClass(addPhotoValidButton, `addPhoto__validButton`, `addPhoto__validButton--active`)
         addPhotoValidButtonGreen.classList.remove(`addPhoto__validButton--green`)
 
     })
@@ -205,14 +222,10 @@ function addFile () {
 
         }
 
-        faImage.classList.remove(`fa-image`)
-        faImage.classList.add(`fa-image--inactive`)
-        addPhotoButton.classList.remove(`addPhoto__button`)
-        addPhotoButton.classList.add(`addPhoto__button--inactive`)
-        addPhotoFileTypes.classList.remove(`addPhoto__fileTypes`)
-        addPhotoFileTypes.classList.add(`addPhoto__fileTypes--inactive`)
-        addPhotoPhoto.classList.remove(`addPhoto__photo`)
-        addPhotoPhoto.classList.add(`addPhoto__photo--active`)
+        changeClass(faImage, `fa-image`, `fa-image--inactive`)
+        changeClass(addPhotoButton, `addPhoto__button`, `addPhoto__button--inactive`)
+        changeClass(addPhotoFileTypes, `addPhoto__fileTypes`, `addPhoto__fileTypes--inactive`)
+        changeClass(addPhotoPhoto, `addPhoto__photo`, `addPhoto__photo--active`)
 
     })
 
@@ -240,13 +253,11 @@ function resetWork() {
     const addPhotoPhotoActive = document.querySelector(`.addPhoto__photo--active`)
 
     if (faImageInactive) {
-        faImageInactive.classList.remove(`fa-image--inactive`)
-        faImageInactive.classList.add(`fa-image`)
+        changeClass(faImageInactive, `fa-image--inactive`, `fa-image`)
     }
 
     if (addPhotoButtonInactive) {
-        addPhotoButtonInactive.classList.remove(`addPhoto__button--inactive`)
-        addPhotoButtonInactive.classList.add(`addPhoto__button`)
+        changeClass(addPhotoButtonInactive, `addPhoto__button--inactive`, `addPhoto__button`)
     }
 
     if (addPhotoAddFile) {
@@ -254,13 +265,11 @@ function resetWork() {
     }
 
     if (addPhotoFileTypesInactive) {
-        addPhotoFileTypesInactive.classList.remove(`addPhoto__fileTypes--inactive`)
-        addPhotoFileTypesInactive.classList.add(`addPhoto__fileTypes`)
+        changeClass(addPhotoFileTypesInactive, `addPhoto__fileTypes--inactive`, `addPhoto__fileTypes`)
     }
 
     if (addPhotoPhotoActive) {
-        addPhotoPhotoActive.classList.remove(`addPhoto__photo--active`)
-        addPhotoPhotoActive.classList.add(`addPhoto__photo`)
+        changeClass(addPhotoPhotoActive, `addPhoto__photo--active`, `addPhoto__photo`)
         addPhotoPhotoActive.src = ``
     }
 
@@ -289,16 +298,19 @@ function validWork () {
     // Sélection des éléments HTML
     const {
 
-        addPhotoArrow,
         galleryModalTitle,
-        addPhotoTitle,
         galleryModal,
+        galleryModalButton,
+
+        addPhotoArrow,
+        addPhotoTitle,
+        
         addPhotoForm,
         addPhotoAddFile,
+
         addPhotoAddTitleInput,
         addPhotoAddTitleError,
         addPhotoSelectCategoryInput,
-        galleryModalButton,
         addPhotoValidButton,
         addPhotoValidButtonGrey,
         addPhotoValidButtonGreen
@@ -315,20 +327,17 @@ function validWork () {
             resetWork()
 
             // Modification des classes pour réafficher la modale "Galerie photo"
-            addPhotoArrow.classList.remove(`addPhoto__arrow--active`)
-            addPhotoArrow.classList.add(`addPhoto__arrow`)
-            galleryModalTitle.classList.remove(`galleryModal__title--inactive`)
-            galleryModalTitle.classList.add(`galleryModal__title`)
-            addPhotoTitle.classList.remove(`addPhoto__title--active`)
-            addPhotoTitle.classList.add(`addPhoto__title`)
-            galleryModal.classList.remove(`galleryModal--inactive`)
-            galleryModal.classList.add(`galleryModal`)
-            addPhotoForm.classList.remove(`addPhoto__form--active`)
-            addPhotoForm.classList.add(`addPhoto__form`)
-            galleryModalButton.classList.remove(`galleryModal__button--inactive`)
-            galleryModalButton.classList.add(`galleryModal__button`)
-            addPhotoValidButton.classList.remove(`addPhoto__validButton--active`)
-            addPhotoValidButton.classList.add(`addPhoto__validButton`)
+            changeClass(galleryModalTitle, `galleryModal__title--inactive`, `galleryModal__title`)
+            changeClass(galleryModal, `galleryModal--inactive`, `galleryModal`)
+            changeClass(galleryModalButton, `galleryModal__button--inactive`, `galleryModal__button`)
+
+            changeClass(addPhotoArrow, `addPhoto__arrow--active`, `addPhoto__arrow`)
+            changeClass(addPhotoTitle, `addPhoto__title--active`, `addPhoto__title`)
+            
+            changeClass(addPhotoForm, `addPhoto__form--active`, `addPhoto__form`)
+
+            changeClass(addPhotoValidButton, `addPhoto__validButton--active`, `addPhoto__validButton`)
+            
         })
 
     }
