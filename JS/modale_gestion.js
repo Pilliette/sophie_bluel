@@ -45,16 +45,13 @@ const changeClass = (elt, removeClass, addClass) => {
 
 }
 
-// Déclaration de la variable de suppression d'un projet
-let projectDeleted = false
-let projectAdded = false
-
 // Déclaration de la fonction pour fermer la modale
 function closeModal (overlayModal) {
 
     // Sélection des éléments HTML
     const relativeBody = document.querySelector(`.relativeBody`)
 
+    // Déclaration de la fonction de réaction au clic pour fermer la modale
     function closeClick(event) {
 
         const {
@@ -65,11 +62,11 @@ function closeModal (overlayModal) {
 
         } = selectionVariables()
         
-        if (!modal || !crossModal || !addPhotoValidButtonGreen) return
+        if (!modal || !crossModal) return
         
         const clickOutsideModal = !modal.contains(event.target)
         const clickOnCross = crossModal.contains(event.target)
-        const clickOnGreenButton = addPhotoValidButtonGreen.contains(event.target)
+        const clickOnGreenButton = addPhotoValidButtonGreen?.contains(event.target)
         
         if (clickOnCross || clickOutsideModal || clickOnGreenButton) {
             
@@ -79,12 +76,14 @@ function closeModal (overlayModal) {
             overlayModal.classList.remove(`overlayModal__edit`)
             relativeBody.classList.remove(`relativeBody__edit`)
 
+            // Suppression de l'écoute du clic pour fermer la modale
             relativeBody.removeEventListener(`click`, closeClick)
 
         }
 
     }
 
+    // Écoute du clic pour fermer la modale
     relativeBody.addEventListener(`click`, closeClick)
     
 }
@@ -101,6 +100,8 @@ function deleteWork (allWorks) {
         button.addEventListener(`click`, async (event) => {
 
             event.preventDefault()
+
+            // Arrêt de la propagation de l'évènement sur d'autres éléments du DOM
             event.stopPropagation()
             
             // Identification du projet via l'id + conversion de l'id en entier
@@ -118,9 +119,6 @@ function deleteWork (allWorks) {
                 }
                 
             })
-
-            // Suppression réussie côté API
-            projectDeleted = true
             
             // Suppression du projet du DOM
 
@@ -140,6 +138,7 @@ function deleteWork (allWorks) {
                 allWorks.splice(index, 1)
             }
 
+            
             document.dispatchEvent(
                 new CustomEvent(`work:deleted`, {bubbles: true})
             )
@@ -337,7 +336,7 @@ function validWork () {
             changeClass(addPhotoForm, `addPhoto__form--active`, `addPhoto__form`)
 
             changeClass(addPhotoValidButton, `addPhoto__validButton--active`, `addPhoto__validButton`)
-            
+
         })
 
     }
@@ -399,10 +398,6 @@ function validWork () {
         })
 
         const newWork = await response.json()
-
-        projectAdded = true
-
-        const refs = selectionVariables()
 
         document.dispatchEvent(
             new CustomEvent(`work:added`, {
