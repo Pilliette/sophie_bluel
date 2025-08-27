@@ -138,7 +138,7 @@ function deleteWork (allWorks) {
                 allWorks.splice(index, 1)
             }
 
-            
+            // Diffusion de l'évènement du projet supprimé
             document.dispatchEvent(
                 new CustomEvent(`work:deleted`, {bubbles: true})
             )
@@ -204,6 +204,7 @@ function addFile () {
     
     } = selectionVariables()
 
+    // Écoute au changement du sélecteur d'image
     addPhotoAddFile.addEventListener(`change`, (event) => {
 
         event.preventDefault()
@@ -221,6 +222,7 @@ function addFile () {
 
         }
 
+        // Changement des classes pour afficher la photo
         changeClass(faImage, `fa-image`, `fa-image--inactive`)
         changeClass(addPhotoButton, `addPhoto__button`, `addPhoto__button--inactive`)
         changeClass(addPhotoFileTypes, `addPhoto__fileTypes`, `addPhoto__fileTypes--inactive`)
@@ -251,6 +253,7 @@ function resetWork() {
     const addPhotoFileTypesInactive = document.querySelector(`.addPhoto__fileTypes--inactive`)
     const addPhotoPhotoActive = document.querySelector(`.addPhoto__photo--active`)
 
+    // Changement des classes pour reset les champs
     if (faImageInactive) {
         changeClass(faImageInactive, `fa-image--inactive`, `fa-image`)
     }
@@ -344,8 +347,13 @@ function validWork () {
     // Déclaration de la fonction de vérification des conditions d'ajout de projet
     function checkConditions() {
 
+        // Vérification qu'un fichier a été sélectionné
         const imageSelected = addPhotoAddFile.files.length > 0
+
+        // Vérification d'un champs non vide après le retrait des espaces avant et après la chaîne
         const titleFilled = addPhotoAddTitleInput.value.trim() !== ``
+
+        // Vérification que la catégorie est sélectionnée
         const categorySelected = addPhotoSelectCategoryInput.value !== ``
 
         if (imageSelected && titleFilled && categorySelected) {
@@ -374,6 +382,7 @@ function validWork () {
         const title = addPhotoAddTitleInput.value.trim()
         const category = addPhotoSelectCategoryInput.value
 
+        // Affichage du message d'erreur en cas du champs titre vide
         if(title === "") {
 
             addPhotoAddTitleError.style.display = `block`
@@ -381,6 +390,7 @@ function validWork () {
 
         }
 
+        // Création du formulaire d'un nouveau projet
         const formData = new FormData()
         formData.append(`image`, image)
         formData.append(`title`, title)
@@ -399,6 +409,7 @@ function validWork () {
 
         const newWork = await response.json()
 
+        // Diffusion de l'évènement d'ajout d'un projet
         document.dispatchEvent(
             new CustomEvent(`work:added`, {
 
@@ -412,6 +423,7 @@ function validWork () {
         const relativeBody = document.querySelector(`.relativeBody`)
         const {modal} = selectionVariables()
 
+        // Fermeture de la modale
         modal?.remove()
         overlayModal?.classList.remove(`overlayModal__edit`)
         relativeBody?.classList.remove(`relativeBody__edit`)
@@ -421,6 +433,7 @@ function validWork () {
 }
 
 export default {
+
     selectionVariables,
     closeModal,
     deleteWork,
@@ -428,4 +441,5 @@ export default {
     addFile,
     resetWork,
     validWork
+    
 }
