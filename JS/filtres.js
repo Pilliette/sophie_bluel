@@ -65,6 +65,8 @@ function filtrer(allWorks, chargerGalerie) {
 
 // Export du fichier filtres.js complet
 export default {
+
     categories,
     filtrer
+    
 }
